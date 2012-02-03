@@ -1,0 +1,33 @@
+@ utils={}
+
+@import "gradient";
+
+.utils.clearfix() {
+    zoom: 1;
+    &:after {
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+        content: ".";
+    }
+}
+
+.utils.border_radius(radius) {
+    @ radius = radius || '10px'
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.utils.box_shadow(shadow) {
+  -moz-box-shadow: @{shadow};
+  -webkit-box-shadow: @{shadow};
+  box-shadow: @{shadow};
+}
+
+.utils.box_sizing(val) {
+  -moz-box-sizing: @val;
+  -webkit-box-sizing: @val;
+  box-sizing: @val;
+}

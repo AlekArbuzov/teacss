@@ -1,0 +1,7 @@
+steal('./teacss/core.js')
+.then('./teacss/color.js')
+.then('./teacss/image.js')
+.then('./teacss/ui.js')
+.then('./teacss/canvas.js')
+//.then('./teacss/fileManager.js')
+.then(function(){teacss.update();})

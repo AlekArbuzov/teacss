@@ -1,0 +1,65 @@
+.form.button(gradient_style,border_radius,font_size,first_color,second_color,text_color,auto_hover) {
+
+    @{
+        border_radius = border_radius || 10;
+        font_size = font_size || 14;
+        first_color = first_color || rgba(11,153,194,1);
+        second_color = second_color || darken(first_color,20);
+        text_color = text_color || 'white';
+        height = font_size * 2;
+
+        function drawButton(context,x,y,w,h) {
+            radius = border_radius;
+            context.beginPath();
+            context.fillStyle="white";
+            context.fillRect(0,0, 126, 36);
+            context.strokeStyle = first_color.toString();
+
+            var r = x + w;
+            var b = y + h;
+            context.moveTo(x+radius, y);
+            context.lineTo(r-radius, y);
+            context.quadraticCurveTo(r, y, r, y+radius);
+            context.lineTo(r, y+h-radius);
+            context.quadraticCurveTo(r, b, r-radius, b);
+            context.lineTo(x+radius, b);
+            context.quadraticCurveTo(x, b, x, b-radius);
+            context.lineTo(x, y+radius);
+            context.quadraticCurveTo(x, y, x+radius, y);
+
+            var backgrad = context.createLinearGradient(0,0,0,30);
+
+            backgrad.addColorStop(0, first_color.toString());
+            backgrad.addColorStop(0.5, second_color.toString());
+            context.fillStyle = backgrad;
+            context.fill();
+            context.stroke();
+        }
+
+        var base = new Canvas(500,30);
+        base.draw2D(function(context){ drawButton(context,0,0,500+border_radius+1,height)});
+
+        var end = new Canvas(border_radius,30);
+        end.draw2D(function(context) { drawButton(context,-border_radius,0,border_radius*2,height) })
+    }
+
+    background:  url(@{base.toDataURL()});
+    font-size:   @{font_size}px;
+    padding:     @{(height-font_size)*0.5}px 10px;
+    line-height: 1em;
+    height:      @{font_size}px;
+    display:     inline-block;
+    color:       @text_color;
+    position:    relative;
+    margin-right: 0.5em;
+
+    &:after {
+        content: "";
+        position: absolute;
+        width:  @{border_radius}px;
+        height: @{height}px;
+        right: 0;
+        top: 0;
+        background: url(@{end.toDataURL()});
+    }
+}
