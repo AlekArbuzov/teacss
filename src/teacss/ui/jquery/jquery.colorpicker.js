@@ -233,6 +233,7 @@
 			},
 			show = function (ev) {
 				var cal = $('#' + $(this).data('colorpickerId'));
+                cal.appendTo("#teacss-ui");
 				cal.data('colorpicker').onBeforeShow.apply(this, [cal.get(0)]);
 				var pos = $(this).offset();
 				var viewPort = getViewport();
@@ -247,7 +248,7 @@
                 if (cal.css("position")=='fixed') top -= $("html").scrollTop();
 				cal.css({left: left - parseFloat($("body").css("margin-left")) + 'px', top: top + 'px'});
 				if (cal.data('colorpicker').onShow.apply(this, [cal.get(0)]) != false) {
-					cal.show();
+                    cal.show();
 				}
 				$(document).bind('mousedown', {cal: cal}, hide);
 				return false;

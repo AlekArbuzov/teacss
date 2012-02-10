@@ -13,7 +13,7 @@ teacss = (function () {
 	}
     teacss.trim = trim;
 
-    function getFile(url) {
+    teacss.getFile = function(url) {
         var AJAX;
         if (window.XMLHttpRequest) {
             AJAX=new XMLHttpRequest();
@@ -30,7 +30,7 @@ teacss = (function () {
         }
     }
 
-    function getFullPath(path,base) {
+    teacss.getFullPath = function(path,base) {
         if (!(path[0]=='/' ||
             path.indexOf("http://")==0 ||
             path.indexOf("https://")==0))
@@ -45,7 +45,7 @@ teacss = (function () {
 
     teacss.parseFile = function (path) {
         if (files[path]) return files[path].js;
-        var data = getFile(path);
+        var data = teacss.getFile(path);
         if (data) {
             files[path] = {tea:data,js:'',imports:[],counter:0,line:0,lineCount:0};
             var startLine = parseLine;
@@ -65,7 +65,7 @@ teacss = (function () {
         var N = code.length,s = 0,l;
         var output = "";
         var errors = [];
-        output = "tea.start('"+path+"',"+parseLine+");\n" + output;
+        output = "tea.start('"+path.replace(/\\/g,"\\\\")+"',"+parseLine+");\n" + output;
         parseLine++;
 
         function next() {
@@ -108,6 +108,10 @@ teacss = (function () {
                         s+=7;
                         push_state('import'); continue;
                     }
+                    if (code.substring(s,s+7)=='@append') {
+                        s+=7;
+                        push_state('append'); continue;
+                    }
                     if (code.substring(s,s+"@keyframes".length)=='@keyframes' ||
                         code.substring(s,s+"@-moz-keyframes".length)=='@-moz-keyframes' ||
                         code.substring(s,s+"@-webkit-keyframes".length)=='@-webkit-keyframes' ||
@@ -125,7 +129,7 @@ teacss = (function () {
                     push_state('js_line'); continue;
                 }
                 if (code[s]=='}') {
-                    if (stack.length>2 && stack[stack.length-2].state=='js')
+                    if (stack.length>=2 && stack[stack.length-2].state=='js')
                         output += '}';
                     else
                         output += '});';
@@ -150,8 +154,8 @@ teacss = (function () {
                 s+=2;
                 pop_state(); continue;
             }
-            if (state=='import') {
-                output += '/* @import';
+            if (state=='import' || state=='append') {
+                output += '/* @'+state;
                 var importName = "";
                 while (s<N && code[s]!=';') {
                     importName += code[s];
@@ -165,10 +169,20 @@ teacss = (function () {
                         importName = importName.substring(0,importName.length-1);
                     importName = importName.replace("\\"+br,br);
                 }
-                importName = getFullPath(importName,path);
-                var parsed = this.parseFile(importName);
+                importName = teacss.getFullPath(importName,path);
+                if (state=="import") {
+                    var parsed = this.parseFile(importName);
+                // state=="append"
+                } else {
+                    var parsed = "";
+                    if (importName.split(".").pop()=="js")
+                        teacss.appendScript(importName);
+                    else if (importName.split(".").pop()=="css")
+                        teacss.appendStyle(importName);
+                }
                 if (code[s]!=';') error('; expected');
-                output+= '; */\n'; parseLine++; next();
+                output+= ';*/'; next();
+
                 if (parsed===false)
                     error('Can\'t load file: '+importName);
                 else
@@ -205,6 +219,7 @@ teacss = (function () {
                 var raw = "";
                 if (state=='namespace') rule += next();
                 while (s<N) {
+                    if (code[s]=='}') error('} is unexpected inside rule or selector');
                     if (code[s]=='{') break;
                     if (code[s]==';') break;
                     if (code[s]=='@') {
@@ -309,9 +324,9 @@ teacss = (function () {
             }
         }
         if (js_file) {
-            if (stack.length!=1 || state!='js') error("Unexpected end of file");
+            if (stack.length!=1 || state!='js') error("Unexpected end of js file");
         } else {
-            if (stack.length!=1 || state!='css') error("Unexpected end of file");
+            if (stack.length!=1 || state!='css') error("Unexpected end of tea file");
         }
 
         if (errors.length) {
@@ -341,6 +356,7 @@ teacss = (function () {
             this.indent = tea.indent;
             this.print = function(s) { this.code.push(s); }
             this.getSelector = function() {
+                this.fullSelector = this.selector;
                 if (this.parent && this.parent.selector) {
                     var parent_full = this.parent.getSelector();
                     var parent_items = parent_full.split(",");
@@ -357,11 +373,9 @@ teacss = (function () {
                             parts.push(sel);
                         }
                     }
-                    return parts.join(", ");
+                    this.fullSelector = parts.join(", ");
                 }
-                else {
-                    return this.selector;
-                }
+                return this.fullSelector;
             }
             this.getOutput = function () {
                 if (!this.code.length) return "";
@@ -375,7 +389,6 @@ teacss = (function () {
             }
             tea.rules.push(this);
         }
-
         tea.namespace = function (selector,func) {
             tea.indent = "    ";
             tea.rules.push({getOutput:function(){return selector+' {\n'}});
@@ -438,6 +451,7 @@ teacss = (function () {
 
     teacss.sheets = function () {
         var sheets = [];
+        if (typeof document=='undefined') return [];
         var links = document.getElementsByTagName('link');
         for (var i = 0; i < links.length; i++) {
             var tea = links[i].getAttribute('tea');
@@ -445,6 +459,7 @@ teacss = (function () {
                 sheets.push({
                     src:tea,
                     css:links[i].getAttribute('href'),
+                    target:links[i].getAttribute('target'),
                     linkNode:links[i],
                     styleNode:false,
                     scriptNode:false}
@@ -512,6 +527,45 @@ teacss = (function () {
             throw e;
         }
     }
+    teacss.appendStyle = function(href,css) {
+        css = css || "";
+        if (href) {
+            var styleNode = document.createElement("link");
+            styleNode.type = "text/css";
+            styleNode.rel = "stylesheet";
+            styleNode.href = teacss.functions.tea.dir ? teacss.getFullPath(href,teacss.functions.tea.dir) : href;
+            document.getElementsByTagName("head")[0].appendChild(styleNode);
+        } else {
+            var styleNode = document.createElement("style");
+            styleNode.type = "text/css";
+            styleNode.rel = "stylesheet";
+            document.getElementsByTagName("head")[0].appendChild(styleNode);
+
+            var rules = document.createTextNode(css);
+            if (styleNode.styleSheet) {
+                styleNode.styleSheet.cssText = rules.nodeValue;
+            } else {
+                styleNode.innerHTML = "";
+                styleNode.appendChild(rules);
+            }
+        }
+        return styleNode;
+    }
+    teacss.appendScript = function(href,js) {
+        js = js || "";
+        var scriptNode = document.createElement("script");
+        scriptNode.type = 'text/javascript';
+        if (href) {
+            var src = teacss.functions.tea.dir ? teacss.getFullPath(href,teacss.functions.tea.dir) : href;
+            var js = teacss.getFile(src);
+            scriptNode.src = src;
+        } else {
+            scriptNode.text = js || "";
+        }
+        document.getElementsByTagName("head")[0].appendChild(scriptNode);
+        return scriptNode;
+    }
+
     teacss.debugRuntime = true;
     teacss.update = function(){
         if (teacss.updating) return;
@@ -526,22 +580,18 @@ teacss = (function () {
                 if (!sheet.scriptNode) {
                     var code = "var teacss_sheet_"+i+" = teacss.getSheetFunction(function() {\n";
                     parseLine = 1;
+                    var parsed = teacss.parseFile(sheet.src);
                     for (var name in teacss.functions) {
                         code += "var "+name+" = teacss.functions."+name+";\n";
-                        parseLine++;
                     }
-                    code += teacss.parseFile(sheet.src);
+                    code += parsed;
                     code += "\n})";
-
-                    sheet.scriptNode = document.createElement("script");
-                    sheet.scriptNode.type = 'text/javascript';
-                    sheet.scriptNode.text = code;
-
-                    document.getElementsByTagName("head")[0].appendChild(sheet.scriptNode);
+                    sheet.scriptNode = teacss.appendScript(false,code);
                 }
 
                 try {
                     var css = window['teacss_sheet_'+i](sheet);
+                    sheet.style = css;
                 }
                 catch (e) {
                     var lineNumber = e.lineNumber;
@@ -551,15 +601,6 @@ teacss = (function () {
 
                     var path = teacss.functions.tea.stack[teacss.functions.tea.stack.length-1];
                     var file = files[path];
-                    /*var min_delta = 100000000;
-                    for (var f in files) {
-                        var delta = files[f].start - lineNumber;
-                        if (delta>=0 && delta<min_delta) {
-                            min_delta = delta;
-                            file = files[f];
-                            path = f;
-                        }
-                    }*/
 
                     if (this.debugRuntime) {
                         throw {
@@ -578,20 +619,16 @@ teacss = (function () {
                 }
 
                 if (!sheet.styleNode) {
-                    sheet.styleNode = document.createElement("style");
-                    sheet.styleNode.type = "text/css";
-                    sheet.styleNode.rel = "stylesheet";
-                    sheet.styleNode.media = "screen";
-                    document.getElementsByTagName("head")[0].appendChild(sheet.styleNode);
-                }
-
-                if (css!==false) {
-                    var rules = document.createTextNode(css);
-                    if (sheet.styleNode.styleSheet) {
-                        sheet.styleNode.styleSheet.cssText = rules.nodeValue;
-                    } else {
-                        sheet.styleNode.innerHTML = "";
-                        sheet.styleNode.appendChild(rules);
+                    if (css!==false) sheet.styleNode = teacss.appendStyle(false,css||"");
+                } else {
+                    if (css!==false) {
+                        var rules = document.createTextNode(css);
+                        if (sheet.styleNode.styleSheet) {
+                            sheet.styleNode.styleSheet.cssText = rules.nodeValue;
+                        } else {
+                            sheet.styleNode.innerHTML = "";
+                            sheet.styleNode.appendChild(rules);
+                        }
                     }
                 }
             }

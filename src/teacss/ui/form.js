@@ -1,5 +1,6 @@
 teacss.ui.form = function (selector,controlsCallback,options) {
     var $ = teacss.jQuery;
+    options = options || {};
     if (this.forms[selector]) return this.forms[selector];
     this.forms[selector] = this.activeForm = {
         controls: {},
@@ -38,10 +39,13 @@ teacss.ui.form = function (selector,controlsCallback,options) {
     var defaults = {
         width: 300,
         height: 400,
-        align: 'none'
+        align: 'none',
+        autoOpen: true
     }
     options = $.extend({},defaults,options);
     $$(function(){ $$(selector).eq(0).each(function(){
+        if (!$("#teacss-ui").length)
+            $("body").append("<div id='teacss-ui'></div>");
 
         var position = $$(this).css("position");
         if (position!='absolute') {
@@ -73,7 +77,8 @@ teacss.ui.form = function (selector,controlsCallback,options) {
                     dialog.panel.accordion("resize");
                 },
                 create: function(event, ui){
-                    $(this).parent().wrap('<div class="teacss-ui teacss-ui-dialog align-'+options.align+'" />');
+                    var ex_class = options.align=='left' ? 'align-left' : '';
+                    $(this).parent().appendTo($("#teacss-ui")).wrap("<div class='teacss-ui-dialog "+ex_class+"'>");
                 },
                 width: options.width,
                 height: options.height,
@@ -119,7 +124,8 @@ teacss.ui.form = function (selector,controlsCallback,options) {
              })
             .mouseout(function(){  $$(this).find(".teacss_ui_icon").hide(); })
 
-        $$(".teacss_ui_icon").click();
+        if (options.autoOpen)
+            $$(".teacss_ui_icon").click();
 
     })})
     return this.activeForm;

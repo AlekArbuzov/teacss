@@ -1,8 +1,63 @@
-body .teacss-ui .ui-accordion-header {
+/* RESET */
+#teacss-ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    line-height: 1;
+}
+#teacss-ui html, #teacss-ui body, #teacss-ui div, #teacss-ui span, #teacss-ui applet, #teacss-ui object, #teacss-ui iframe,
+#teacss-ui h1, #teacss-ui h2, #teacss-ui h3, #teacss-ui h4, #teacss-ui h5, #teacss-ui h6, #teacss-ui p, #teacss-ui blockquote, #teacss-ui pre,
+#teacss-ui a, #teacss-ui abbr, #teacss-ui acronym, #teacss-ui address, #teacss-ui big, #teacss-ui cite, #teacss-ui code,
+#teacss-ui del, #teacss-ui dfn, #teacss-ui em, #teacss-ui img, #teacss-ui ins, #teacss-ui kbd, #teacss-ui q, #teacss-ui s, #teacss-ui samp,
+#teacss-ui small, #teacss-ui strike, #teacss-ui strong, #teacss-ui sub, #teacss-ui sup, #teacss-ui tt, #teacss-ui var,
+#teacss-ui b, #teacss-ui u, #teacss-ui i, #teacss-ui center,
+#teacss-ui dl, #teacss-ui dt, #teacss-ui dd, #teacss-ui ol, #teacss-ui ul, #teacss-ui li,
+#teacss-ui fieldset, #teacss-ui form, #teacss-ui label, #teacss-ui legend,
+#teacss-ui table, #teacss-ui caption, #teacss-ui tbody, #teacss-ui tfoot, #teacss-ui thead, #teacss-ui tr, #teacss-ui th, #teacss-ui td,
+#teacss-ui article, #teacss-ui aside, #teacss-ui canvas, #teacss-ui details, #teacss-ui embed,
+#teacss-ui figure, #teacss-ui figcaption, #teacss-ui footer, #teacss-ui header, #teacss-ui hgroup,
+#teacss-ui menu, #teacss-ui nav, #teacss-ui output, #teacss-ui ruby, #teacss-ui section, #teacss-ui summary,
+#teacss-ui time, #teacss-ui mark, #teacss-ui audio, #teacss-ui video, #teacss-ui button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: none;
+    border: none;
+}
+#teacss-ui ol, #teacss-ui ul {
+    list-style: none;
+}
+#teacss-ui table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+#teacss-ui caption, #teacss-ui th, #teacss-ui td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+#teacss-ui q, #teacss-ui blockquote {
+    quotes: none;
+}
+#teacss-ui a img {
+    border: none;
+}
+#teacss-ui article, #teacss-ui aside, #teacss-ui details, #teacss-ui figcaption, #teacss-ui figure,
+#teacss-ui footer, #teacss-ui header, #teacss-ui hgroup, #teacss-ui menu, #teacss-ui nav, #teacss-ui section {
+    display: block;
+}
+
+
+#teacss-ui .ui-accordion-header {
     font-family: Gill Sans, Arial, sans-serif;
 }
 
-.teacss-ui .ui-accordion .ui-accordion-header a {
+#teacss-ui .ui-accordion .ui-accordion-header a {
     padding-top: 0.1em;
     padding-bottom: 0.1em;
 }
@@ -19,7 +74,7 @@ body .teacss-ui .ui-accordion-header {
     z-index: 1000000;
 }
 
-.teacss-ui-dialog {
+#teacss-ui .teacss-ui-dialog {
     font-size: 12px !important;
     position: absolute;
     top: 0;
@@ -27,13 +82,13 @@ body .teacss-ui .ui-accordion-header {
     bottom: 0;
 }
 
-.teacss-ui-dialog fieldset {
+#teacss-ui .teacss-ui-dialog fieldset {
     margin-bottom: 5px;
     border: 1px solid #ccc;
     padding: 5px;
 }
 
-.teacss-ui-dialog fieldset legend {
+#teacss-ui .teacss-ui-dialog fieldset legend {
     font: inherit !important;
     border: none !important;
     color: inherit !important;
@@ -42,18 +97,17 @@ body .teacss-ui .ui-accordion-header {
     width: inherit;
 }
 
-.colorpicker input {
+#teacss-ui .colorpicker input {
     width: inherit;
 }
 
-.teacss-ui-dialog.align-left .ui-dialog {
-    position: fixed !important;
+#teacss-ui .teacss-ui-dialog.align-left .ui-dialog {
     top: 0 !important;
     left: 0 !important;
-    bottom: 0;
+    bottom: 0 !important;
 }
 
-.teacss-ui-dialog.align-left .ui-dialog .ui-dialog-content {
+#teacss-ui .teacss-ui-dialog.align-left .ui-dialog .ui-dialog-content {
     position: absolute;
     height: auto !important;
     top: 30px;
@@ -62,11 +116,11 @@ body .teacss-ui .ui-accordion-header {
     left: 0;
 }
 
-.teacss-ui-dialog.align-left .ui-dialog > .ui-accordion {
+#teacss-ui .teacss-ui-dialog.align-left .ui-dialog > .ui-accordion {
     height: 100%;
 }
 
-.composer-panel {
+#teacss-ui .composer-panel {
     background: #eee;
     position: absolute;
     left: 0;
@@ -78,20 +132,20 @@ body .teacss-ui .ui-accordion-header {
     color: #000;
 }
 
-.composer-panel.ui-accordion .ui-accordion-content {
+#teacss-ui .composer-panel.ui-accordion .ui-accordion-content {
     padding: 5px 5px 5px 5px;
 }
 
-.composer-panel h3 {
+#teacss-ui .composer-panel h3 {
     font-weight: bold;
 }
 
-.color_control {
+#teacss-ui .color_control {
     background: url('images/colorpicker_background.png') -14px -15px;
     border: 1px solid black;
 }
 
-.button-select-panel {
+#teacss-ui .button-select-panel {
     color: #000;
     font-size: 12px !important;
     cursor: pointer;
@@ -100,11 +154,11 @@ body .teacss-ui .ui-accordion-header {
     position: fixed !important;
 }
 
-.button-select-panel > div > .combo-item:hover {
+#teacss-ui .button-select-panel > div > .combo-item:hover {
     background: #aaa;
 }
 
-.colorpicker {
+#teacss-ui .colorpicker {
     position: fixed !important;
 }
 
@@ -169,15 +223,15 @@ body .teacss-ui .ui-accordion-header {
     padding: 0;
 }
 
-.ui-label {
+#teacss-ui .ui-label {
     padding: 5px;
 }
 
-.ui-label.ui-disabled {
+#teacss-ui .ui-label.ui-disabled {
     opacity: 0.35;
 }
 
-.ui-sorter fieldset > div {
+#teacss-ui .ui-sorter fieldset > div {
     border-radius: 4px;
     border: 1px solid #ccc;
     color: #1C94C4;

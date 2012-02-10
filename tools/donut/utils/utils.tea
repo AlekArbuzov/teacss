@@ -1,33 +1,31 @@
-@ utils={}
-
 @import "gradient";
+@import "css3";
 
-.utils.clearfix() {
-    zoom: 1;
+.clearfix() {
+    *zoom: 1;
+    &:before,
     &:after {
-        display: block;
-        visibility: hidden;
-        height: 0;
+        display: table;
+        content: "";
+    }
+    &:after {
         clear: both;
-        content: ".";
     }
 }
 
-.utils.border_radius(radius) {
-    @ radius = radius || '10px'
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    border-radius: @radius;
+.tab_focus() {
+    // Default
+    outline: thin dotted;
+    // Webkit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }
 
-.utils.box_shadow(shadow) {
-  -moz-box-shadow: @{shadow};
-  -webkit-box-shadow: @{shadow};
-  box-shadow: @{shadow};
-}
+.reset_filter() {
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}   
 
-.utils.box_sizing(val) {
-  -moz-box-sizing: @val;
-  -webkit-box-sizing: @val;
-  box-sizing: @val;
+.size(w,h) {
+    width: @{w}px;
+    height: @{h}px;
 }
