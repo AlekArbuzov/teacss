@@ -1,7 +1,5 @@
 Canvas.effects = function() {
-    var $ = $$;
     effects = {};
-
     // returns a random number between 0 and 1
     var randomShaderFunc = Canvas.randomShaderFunc = '\
         float random(vec3 scale, float seed) {\

@@ -9,7 +9,7 @@ teacss.ui.check = teacss.ui.Check = teacss.ui.Control.extend("teacss.ui.Check",{
         this._super(options);
         this.value = options.value || false;
 
-        this.element = $$("<label>")
+        this.element = teacss.jQuery("<label>")
             .css({
                 display: (me.options.width=='100%') ? 'block' : 'inline-block',
                 'vertical-align':'bottom',
@@ -17,7 +17,7 @@ teacss.ui.check = teacss.ui.Check = teacss.ui.Control.extend("teacss.ui.Check",{
                 margin: me.options.margin
             })
             .append(
-                $$("<input type='checkbox'>"),
+                teacss.jQuery("<input type='checkbox'>"),
                 '&nbsp;',
                 me.options.label
             )

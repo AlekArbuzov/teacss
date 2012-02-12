@@ -3,9 +3,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    width: 0;
     bottom: 0;
-    overflow: hidden;
+    overflow: visible;
     line-height: 1;
 }
 #teacss-ui html, #teacss-ui body, #teacss-ui div, #teacss-ui span, #teacss-ui applet, #teacss-ui object, #teacss-ui iframe,

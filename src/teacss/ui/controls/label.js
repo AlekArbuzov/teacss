@@ -4,11 +4,11 @@ teacss.ui.label = teacss.ui.Label = teacss.ui.Control.extend("teacss.ui.Label",{
         this.update();
     },
     init : function(options) {
-        this._super($$.extend({
+        this._super(teacss.jQuery.extend({
             'text-align':'left',
             template: "${value}"
         },options));
-        this.element = $$("<div>")
+        this.element = teacss.jQuery("<div>")
             .addClass("ui-label")
             .css({
                 display: this.options.width=='100%' ? 'block' : 'inline-block',
@@ -21,7 +21,7 @@ teacss.ui.label = teacss.ui.Label = teacss.ui.Control.extend("teacss.ui.Label",{
         this.setValue(options.value);
     },
     update: function() {
-        this.element.html( $$.tmpl(this.options.template,{value:this.value}) );
+        this.element.html( teacss.jQuery.tmpl(this.options.template,{value:this.value}) );
     },
     setEnabled: function (enabled) {
         if (this.element) {

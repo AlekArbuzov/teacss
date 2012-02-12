@@ -48,7 +48,7 @@ teacss.jQuery.Class.extend("teacss.ui.Control",{
     },
     init: function (options) {
         this.listeners = {};
-        this.options = $$.extend({
+        this.options = teacss.jQuery.extend({
             width: 'auto',
             height: 'auto',
             margin: '0 5px 0 0',

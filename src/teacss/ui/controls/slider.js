@@ -6,14 +6,14 @@ teacss.ui.slider = teacss.ui.Slider = teacss.ui.Control.extend("teacss.ui.Slider
     },
     init : function(options) {
         var me = this;
-        this._super($$.extend({
+        this._super(teacss.jQuery.extend({
             min: 0,
             max: 100,
             step: 1
         },options));
         this.value = options.value;
 
-        this.element = $$("<div>")
+        this.element = teacss.jQuery("<div>")
             .css({
                 display: (me.options.width=='auto') ? 'block' : 'inline-block',
                 'vertical-align':'bottom',
@@ -30,7 +30,7 @@ teacss.ui.slider = teacss.ui.Slider = teacss.ui.Control.extend("teacss.ui.Slider
                     me.trigger("change");
                 },
                 change:function(event,ui) {
-                    me.value = $$(this).slider("value");
+                    me.value = teacss.jQuery(this).slider("value");
                     if (ui.originalEvent)
                         me.trigger("change");
                 }

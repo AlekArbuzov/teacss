@@ -1,7 +1,5 @@
 // TODO: Write a memory manager for canvas
-var Canvas = function() {
-    var $ = $$;
-
+var Canvas = teacss.Canvas = teacss.canvas = teacss.functions.canvas = teacss.functions.Canvas = function() {
     function wrap(name,func) {
         return function() {
             if (this.run || !Canvas.wrap) {

@@ -54,7 +54,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
     setSelected : function () {
         var me = this;
         me.itemPanel.find(">*").removeClass("selected").each(function(){
-            var item = $$(this).data("item");
+            var item = teacss.jQuery(this).data("item");
             if (item &&
                  (item===me.selected_on_open
                   || (item.value!=undefined
@@ -63,7 +63,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                      )
                  )
                ) {
-                $$(this).addClass("selected");
+                teacss.jQuery(this).addClass("selected");
             }
         })
     },
@@ -73,7 +73,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
             this.element.button("option",{disabled:!enabled});
     },
     init: function (options) {
-        this._super($$.extend({
+        this._super(teacss.jQuery.extend({
             comboWidth : false,
             comboHeight: 300,
             comboDirection: 'default',
@@ -105,7 +105,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
             preview: false
         },options));
 
-        this.options.itemData = $$.extend({},{
+        this.options.itemData = teacss.jQuery.extend({},{
                 spriteWidth: 50,
                 spriteHeight: 50,
                 spriteX : 0,
@@ -128,7 +128,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
         me.selected = options.selected || ((options.selectedIndex!=undefined)?me.items[options.selectedIndex]:undefined);
         if (!this.value && this.selected) this.value = this.selected.value || this.selected;
 
-        this.panel = $$("<div>")
+        this.panel = teacss.jQuery("<div>")
             .addClass('button-select-panel teacss-ui')
             .css({
                 position: 'absolute',
@@ -137,7 +137,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                 'z-index': 10000
             })
 
-        this.itemPanel = $$("<div>")
+        this.itemPanel = teacss.jQuery("<div>")
             .css({
                 'max-height': this.options.comboHeight,
                 'min-height': 40,
@@ -145,7 +145,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
             })
             .appendTo(this.panel);
 
-        this.element = $$("<div>")
+        this.element = teacss.jQuery("<div>")
             .css({width:this.options.width=='100%' ? 'auto' : this.options.width,
                   'vertical-align':'bottom',margin:this.options.margin,
                   display:this.options.width=='100%' ? 'block' : 'inline-block'
@@ -154,7 +154,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
             .click(function(e){
                 if (!me.enabled) return;
 
-                if ($$.isFunction(me.items)) {
+                if (teacss.jQuery.isFunction(me.items)) {
                     me.items = me.items();
                     me.refresh();
                 }
@@ -181,7 +181,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                 // TODO: Adjust top for panel to fit the screen
                 me.panel.css({
                     left:panelPos.left,
-                    top: panelPos.top - $$(window).scrollTop(),
+                    top: panelPos.top - teacss.jQuery(window).scrollTop(),
                     display: "",
                     "z-index":maxZ + 1,
                     width: me.options.comboWidth || (me.element).width()
@@ -201,10 +201,10 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                 combo.panelClick = true;
             }
         });
-        if (!$$.isFunction(me.items)) me.refresh();
-        $$(function(){
+        if (!teacss.jQuery.isFunction(me.items)) me.refresh();
+        teacss.jQuery(function(){
             me.panel.appendTo("body");
-            $$(document).mousedown(function(){
+            teacss.jQuery(document).mousedown(function(){
                 if (!me.panelClick) me.hide();
                 me.panelClick = false;
             });
@@ -213,7 +213,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
     refresh : function () {
         var me = this;
         me.itemPanel.html("");
-        tpl = $$.template(null,me.options.itemTpl);
+        tpl = teacss.jQuery.template(null,me.options.itemTpl);
 
         for (var i=0;i<me.items.length;i++) {
             var item = me.items[i];
@@ -225,7 +225,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                 }
                 item.options.nested = true;
             } else {
-                var el = $$($$.tmpl(tpl,$$.extend({},me.options.itemData,item)));
+                var el = teacss.jQuery(teacss.jQuery.tmpl(tpl,teacss.jQuery.extend({},me.options.itemData,item)));
                 el.data("item",item);
                 if (!item.disabled) {
                     var leaveTimeout = 0;
@@ -236,7 +236,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                             clearTimeout(leaveTimeout);
                             leaveTimeout = 0;
                         }
-                        var item = $$(this).data("item");
+                        var item = teacss.jQuery(this).data("item");
                         me.value = (item.value==undefined) ? item :  item.value;
                         me.change();
                         return true;
@@ -248,7 +248,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                         },1);
                     })
                     el.mousedown(function(e){
-                        me.selected = $$(this).data("item");
+                        me.selected = teacss.jQuery(this).data("item");
                         me.element.button("option",{label:me.getLabel()});
                         me.value = (me.selected.value==undefined) ? me.selected : me.selected.value;
                         me.selected_on_open = me.selected;
@@ -266,9 +266,9 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
         }
     },
     getLabel : function() {
-        return this.options.label || $$.tmpl(
+        return this.options.label || teacss.jQuery.tmpl(
                 this.options.labelTpl || this.options.itemTpl,
-                $$.extend({},this.options.itemData,this.selected)
+                teacss.jQuery.extend({},this.options.itemData,this.selected)
         );
     },
     hide : function(e) {

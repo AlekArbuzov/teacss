@@ -5,12 +5,12 @@ teacss.ui.sorter = teacss.ui.Sorter = teacss.ui.Control.extend("teacss.ui.Sorter
     },
     init : function(options) {
         var me = this;
-        this._super($$.extend({
+        this._super(teacss.jQuery.extend({
             panelClass: ""
         },options));
         this.value = options.value || {};
 
-        this.element = $$("<div>")
+        this.element = teacss.jQuery("<div>")
             .addClass("ui-sorter "+this.options.panelClass)
             .css({
                 display: (me.options.width=='auto') ? 'block' : 'inline-block',
@@ -24,10 +24,10 @@ teacss.ui.sorter = teacss.ui.Sorter = teacss.ui.Control.extend("teacss.ui.Sorter
         var me = this;
         this.element.html("");
         for (var key in this.value) {
-            var container = $$("<fieldset><legend>"+key+"</legend></fieldset>");
+            var container = teacss.jQuery("<fieldset><legend>"+key+"</legend></fieldset>");
             var list = this.value[key];
             for (var i=0;i<list.length;i++) {
-                var item = $$("<div>").html(list[i]).data("sorter",list[i]);
+                var item = teacss.jQuery("<div>").html(list[i]).data("sorter",list[i]);
                 container.append(item);
             }
             container.data("sorter",key);
@@ -41,13 +41,13 @@ teacss.ui.sorter = teacss.ui.Sorter = teacss.ui.Control.extend("teacss.ui.Sorter
                 var value = {};
                 for (var c=0;c<containers.length;c++) {
                     var container = containers[c];
-                    var key = $$(container).data("sorter");
+                    var key = teacss.jQuery(container).data("sorter");
                     if (key) {
                         value[key] = [];
-                        var list = $$(container).children("div");
+                        var list = teacss.jQuery(container).children("div");
                         for (var i=0;i<list.length;i++) {
                             var item = list[i];
-                            var data = $$(item).data("sorter");
+                            var data = teacss.jQuery(item).data("sorter");
                             if (data) {
                                 value[key].push(data);
                             }

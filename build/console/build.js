@@ -2,26 +2,24 @@ var fs = require('fs');
 var path = require('path');
 
 var argv = require('optimist')
-    .usage('Usage: node builder.js file.tea file.css')
+    .usage('Usage: node build.js file.tea file.css')
     .demand(2)
     .argv
 ;
-var file = path.relative(".",path.resolve(argv._[0]));
+var file = path.resolve(argv._[0]);
 var out = path.resolve(argv._[1]);
 
-require("../core");
-teacss.getFile = function (url) {
-    return fs.readFileSync(url,'ascii');
-}
-teacss.getFullPath = function(url,base) {
-    return path.relative(".",path.resolve(path.dirname(base),url));
-}
+require("../../src/teacss/core");
+require("../../src/teacss/color");
+require("../../src/teacss/build/build");
 
-var js = teacss.parseFile(file);
-var css = teacss.getSheetFunction(function (){
-    for (var name in teacss.functions)
-        eval('var '+name+' = teacss.functions.'+name);
-    eval(js);
-})();
-
-fs.writeFileSync(out,css);
+var res = teacss.build(file,out);
+var ext = out.split(".").pop();
+if (ext=='css') {
+    fs.writeFileSync(out,res.css);
+} else if (ext=='js') {
+    fs.writeFileSync(out,res.js);
+} else {
+    fs.writeFileSync(out+".css",res.css);
+    fs.writeFileSync(out+".js",res.js);
+}

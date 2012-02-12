@@ -1,5 +1,5 @@
 (function (){
-var $ = $$ = teacss.jQuery = teacss.functions.$ = jQuery.noConflict();
+teacss.jQuery = teacss.functions.$ = jQuery.noConflict(true);
 teacss.ui = teacss.functions.ui = {
     forms: {},
     groups: {},

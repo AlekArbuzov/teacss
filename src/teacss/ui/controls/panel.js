@@ -1,10 +1,10 @@
 teacss.ui.panel = teacss.ui.Panel = teacss.ui.Control.extend("teacss.ui.Panel",{},{
     init : function(options) {
-        this._super($$.extend({
+        this._super(teacss.jQuery.extend({
             'text-align':'left',
             items: []
         },options));
-        this.element = $$("<div>")
+        this.element = teacss.jQuery("<div>")
             .css({
                 display: 'inline-block',
                 width: this.options.width,

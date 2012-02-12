@@ -1,4 +1,3 @@
-// TODO: check out this strange http://[Object] requests
 teacss.functions.image_url = function (sub) {
     return "url("+teacss.functions.image.base+sub+")";
 }

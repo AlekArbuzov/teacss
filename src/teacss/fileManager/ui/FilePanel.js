@@ -5,7 +5,7 @@ UI.Panel.extend("UI.FilePanel",{},{
         this.path = '';
         this.mode = 'css';
         this.leftPanel.addClass("files");
-        this.editPanel = $$("<div>").css({
+        this.editPanel = teacss.jQuery("<div>").css({
             position:"absolute",
             left:0,right:0,top:0,bottom:0,
             background:'#fffffe',
@@ -13,17 +13,17 @@ UI.Panel.extend("UI.FilePanel",{},{
         }).attr({id:this.path+"_code"}).appendTo(this.rightPanel);
 
 
-        if ($$("#fileMenu").length==0) {
-            this.fileMenu = $$("<ul id='fileMenu'>").append(
+        if (teacss.jQuery("#fileMenu").length==0) {
+            this.fileMenu = teacss.jQuery("<ul id='fileMenu'>").append(
                 "<li class='delete'><a href='#delete'>Delete</a></li>"
             ).css("display","none");
-            this.folderMenu = $$("<ul id='folderMenu'>").append(
+            this.folderMenu = teacss.jQuery("<ul id='folderMenu'>").append(
                 "<li class='createFile'><a href='#createFile'>Create file</a></li>",
                 "<li class='createFolder'><a href='#createFolder'>Create folder</a></li>",
                 "<li class='delete'><a href='#delete'>Delete</a></li>"
             ).css("display","none");
 
-            $$("body").append(this.fileMenu,this.folderMenu);
+            teacss.jQuery("body").append(this.fileMenu,this.folderMenu);
         }
         this.refresh();
     },
@@ -34,12 +34,12 @@ UI.Panel.extend("UI.FilePanel",{},{
         this.foldings = this.foldings || {};
 
         var me = this;
-        $$.ajax({
+        teacss.jQuery.ajax({
             url:this.ajax_url+"?action=files&path="+this.path,
             success: function(data,status) {
                 data = eval("("+data+")");
                 if (me.filesPanel) me.filesPanel.remove();
-                me.filesPanel = $$("<div>").addClass("ui-accordion-icons").appendTo(me.leftPanel);
+                me.filesPanel = teacss.jQuery("<div>").addClass("ui-accordion-icons").appendTo(me.leftPanel);
                 me.fillFiles(me.filesPanel,{children:[data]},true);
                 if (me.currentFile) {
                     if (me.fileItems[me.currentFile])
@@ -55,23 +55,23 @@ UI.Panel.extend("UI.FilePanel",{},{
             item.parent = data_parent;
             var label = item.name.split("/").pop();
             label = label || 'root';
-            var item_div = $$("<div>").addClass(item.type).addClass("ui-accordion").appendTo(parent);
+            var item_div = teacss.jQuery("<div>").addClass(item.type).addClass("ui-accordion").appendTo(parent);
 
             if (item.type=="folder") {
                 var inner_div,inner_header;
                 item_div.append(
-                    inner_header = $$("<h3>").append(
+                    inner_header = teacss.jQuery("<h3>").append(
                             "<a href='#'>"+label+"</a>"
                     ).contextMenu({menu:"folderMenu"},
                         function (file,me) {
-                            return $$.proxy(function(action,el) {
+                            return teacss.jQuery.proxy(function(action,el) {
                                 if (action=='createFile') this.createFile(file);
                                 if (action=='createFolder') this.createFolder(file);
                                 if (action=='delete') this.deleteFolder(file);
                             },me);
                         }(item.name,this)
                     ),
-                    inner_div = $$("<div>").css({padding:5}).addClass(item.type)
+                    inner_div = teacss.jQuery("<div>").css({padding:5}).addClass(item.type)
                 );
                 this.fillFiles(inner_div,item);
                 item_div.accordion({
@@ -89,17 +89,17 @@ UI.Panel.extend("UI.FilePanel",{},{
                     }(item,this)
                 });
             } else {
-                var fileItem = $$("<h3>")
+                var fileItem = teacss.jQuery("<h3>")
                     .addClass("ui-widget-header ui-state-default ui-accordion-header ui-helper-reset")
                     .append(
-                        $$("<span>").addClass("ui-icon").addClass("ui-icon-document-b"),
-                        $$("<a href='#'>").html(label).click($$.proxy(this.selectFile,this)).data("file",item.name),
-                        $$("<span>").addClass("ui-icon ui-icon-check save")
-                                   .data("file",item.name).click($$.proxy(this.saveFile,this))
+                        teacss.jQuery("<span>").addClass("ui-icon").addClass("ui-icon-document-b"),
+                        teacss.jQuery("<a href='#'>").html(label).click(teacss.jQuery.proxy(this.selectFile,this)).data("file",item.name),
+                        teacss.jQuery("<span>").addClass("ui-icon ui-icon-check save")
+                                   .data("file",item.name).click(teacss.jQuery.proxy(this.saveFile,this))
                     )
                     .contextMenu({menu:"fileMenu"},
                         function (file,me) {
-                            return $$.proxy(function(action,el) {
+                            return teacss.jQuery.proxy(function(action,el) {
                                 if (action=='delete') this.deleteFile(file);
                             },me);
                         }(item.name,this)
@@ -129,13 +129,13 @@ UI.Panel.extend("UI.FilePanel",{},{
             value:data,
             lineNumbers:true,
             mode: mode,
-            onChange:$$.proxy(this.editorChange,this),
+            onChange:teacss.jQuery.proxy(this.editorChange,this),
             tabMode:"shift",
             indentUnit:2,
             theme:'default'
         });
-        $$(window).keypress(function(event){
-            if ($$(me.editPanel.children()[0]).hasClass('CodeMirror-focused')) {
+        teacss.jQuery(window).keypress(function(event){
+            if (teacss.jQuery(me.editPanel.children()[0]).hasClass('CodeMirror-focused')) {
                 if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
                 event.preventDefault();
                 if (me.fileData[me.currentFile].changed)
@@ -151,14 +151,14 @@ UI.Panel.extend("UI.FilePanel",{},{
     },
     selectFile: function(e) {
         e.preventDefault();
-        $$(e.target).parents(".left-panel").find(".file h3").removeClass("ui-state-active").addClass("ui-state-default");
-        $$(e.target).parent().addClass("ui-state-active");
+        teacss.jQuery(e.target).parents(".left-panel").find(".file h3").removeClass("ui-state-active").addClass("ui-state-default");
+        teacss.jQuery(e.target).parent().addClass("ui-state-active");
 
-        var file = $$(e.target).data("file");
+        var file = teacss.jQuery(e.target).data("file");
         var me = this;
         if (!this.fileData[file])
         {
-            $$.ajax({
+            teacss.jQuery.ajax({
                 cache: false,
                 url: this.ajax_url+"?action=files",
                 data: {path:file},
@@ -172,7 +172,7 @@ UI.Panel.extend("UI.FilePanel",{},{
                     if (ext=='png' || ext=='jpg' || ext=='jpeg' || ext=='gif') {
 
                         me.editPanel.html("");
-                        me.editPanel.append($$("<img>").attr("src",me.fileItems[file].data.url));
+                        me.editPanel.append(teacss.jQuery("<img>").attr("src",me.fileItems[file].data.url));
 
                     } else {
                         me.createEditor(data);
@@ -186,9 +186,9 @@ UI.Panel.extend("UI.FilePanel",{},{
         }
     },
     saveFile: function(e,ex_file) {
-        var file = ex_file || $$(e.target).data("file");
+        var file = ex_file || teacss.jQuery(e.target).data("file");
         var me = this;
-        $$.ajax({
+        teacss.jQuery.ajax({
             url: this.ajax_url+"?action=files",
             data: {path:file,text:me.fileData[file].text},
             type: "POST",
@@ -206,7 +206,7 @@ UI.Panel.extend("UI.FilePanel",{},{
     createFile : function (folder) {
         var file,me=this;
         if (file = prompt('Enter filename')) {
-            $$.ajax({
+            teacss.jQuery.ajax({
                 url: this.ajax_url+"?action=files",
                 data: {path:folder,newFile:file},
                 type: "POST",
@@ -224,7 +224,7 @@ UI.Panel.extend("UI.FilePanel",{},{
     createFolder : function (folder) {
         var newFolder,me=this;
         if (newFolder = prompt('Enter filename')) {
-            $$.ajax({
+            teacss.jQuery.ajax({
                 url: this.ajax_url+"?action=files",
                 data: {path:folder,newFolder:newFolder},
                 type: "POST",
@@ -242,7 +242,7 @@ UI.Panel.extend("UI.FilePanel",{},{
     deleteFile : function (file) {
         var me = this;
         if (confirm('Sure to delete '+file+"?")) {
-            $$.ajax({
+            teacss.jQuery.ajax({
                 url: this.ajax_url+"?action=files",
                 data: {path:file,'delete':true},
                 type: "POST",
@@ -263,7 +263,7 @@ UI.Panel.extend("UI.FilePanel",{},{
     deleteFolder : function (folder) {
         var me = this;
         if (confirm('Sure to delete '+folder+"?")) {
-            $$.ajax({
+            teacss.jQuery.ajax({
                 url: this.ajax_url+"?action=files",
                 data: {path:folder,'delete':true},
                 type: "POST",

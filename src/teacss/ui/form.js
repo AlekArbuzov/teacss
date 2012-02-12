@@ -42,14 +42,16 @@ teacss.ui.form = function (selector,controlsCallback,options) {
         align: 'none',
         autoOpen: true
     }
+    var $ = teacss.jQuery;
+
     options = $.extend({},defaults,options);
-    $$(function(){ $$(selector).eq(0).each(function(){
+    $(function(){ $(selector).eq(0).each(function(){
         if (!$("#teacss-ui").length)
             $("body").append("<div id='teacss-ui'></div>");
 
-        var position = $$(this).css("position");
+        var position = $(this).css("position");
         if (position!='absolute') {
-            $$(this).css("position",'relative');
+            $(this).css("position",'relative');
         }
 
         var extra = {};
@@ -68,11 +70,11 @@ teacss.ui.form = function (selector,controlsCallback,options) {
             }
         }
 
-        var dialog = $$("<div>")
+        var dialog = $("<div>")
             .css({overflow:'hidden'})
             .appendTo("body")
             .dialog($.extend({
-                title:'TeaCss composer',
+                title:'TeaCss UI',
                 resize: function() {
                     dialog.panel.accordion("resize");
                 },
@@ -86,16 +88,16 @@ teacss.ui.form = function (selector,controlsCallback,options) {
                 show: 'slide'
             },extra))
 
-        dialog.panel = $$("<div class='composer-panel'>").appendTo(dialog);
+        dialog.panel = $("<div class='composer-panel'>").appendTo(dialog);
         for (var group_name in teacss.ui.groups) {
             var group = teacss.functions.ui.groups[group_name];
-            var groupHeader = $$("<h3>").append($$("<a href='#'>").html(group.title));
-            var groupPanel = $$("<div>");
+            var groupHeader = $("<h3>").append($("<a href='#'>").html(group.title));
+            var groupPanel = $("<div>");
             var currentPanel = groupPanel;
             for (var fieldset_name in group.fieldsets) {
                 var fieldset = group.fieldsets[fieldset_name];
-                currentPanel = $$("<fieldset>");
-                if (fieldset.title) currentPanel.append($$("<legend>").html(fieldset.title));
+                currentPanel = $("<fieldset>");
+                if (fieldset.title) currentPanel.append($("<legend>").html(fieldset.title));
                 for (var key in fieldset.params) {
                     if (!fieldset.params[key].options.nested)
                         currentPanel.append(fieldset.params[key].element);
@@ -106,26 +108,26 @@ teacss.ui.form = function (selector,controlsCallback,options) {
         }
         dialog.panel.accordion({autoHeight:false,fillSpace:true});
 
-        $$("<div class='teacss_ui_icon'>")
+        $("<div class='teacss_ui_icon'>")
             .appendTo(this)
             .click(function(){
-                var offset = $$(this).offset();
+                var offset = $(this).offset();
                 var pos = [offset.top,offset.left];
                 if (options.align=='left') pos = [0,0];
                 dialog.dialog("option","position",pos);
                 dialog.dialog("open");
                 dialog.panel.accordion("resize");
-                $$(this).hide();
+                $(this).hide();
             })
-        $$(this)
+        $(this)
             .mouseover(function(){
                 if (!dialog.dialog("isOpen"))
-                    $$(this).find(".teacss_ui_icon").show();
+                    $(this).find(".teacss_ui_icon").show();
              })
-            .mouseout(function(){  $$(this).find(".teacss_ui_icon").hide(); })
+            .mouseout(function(){  $(this).find(".teacss_ui_icon").hide(); })
 
         if (options.autoOpen)
-            $$(".teacss_ui_icon").click();
+            $(".teacss_ui_icon").click();
 
     })})
     return this.activeForm;
