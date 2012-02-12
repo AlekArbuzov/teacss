@@ -39,7 +39,7 @@ teacss.build = function(file,out,js_cb,css_cb) {
 
     // preprocess CSS to match the path
     var isAbsoluteOrData = function(part) {
-        return /^(data:|http:\/\/|https:\/\/|\/)/.test(part)
+        return /^(.:\/|data:|http:\/\/|https:\/\/|\/)/.test(part)
     }
     var pathClean = function (part) {
         part = part.replace(/\\/g,"/");
@@ -60,30 +60,38 @@ teacss.build = function(file,out,js_cb,css_cb) {
         var dir = path.replace(/\\/g,"/").split('/');dir.pop();dir = dir.join("/")+'/';
         return dir;
     }
+    var pathRelative = function (path,from) {
+        var pathParts = path.split("/");
+        var fromParts = from.split("/");
+
+        var once = false;
+        while (pathParts.length && fromParts.length && pathParts[0]==fromParts[0]) {
+            pathParts.splice(0,1);
+            fromParts.splice(0,1);
+            once = true;
+        }
+        if (!once) return path;
+        return new Array(fromParts.length).join("../") + pathParts.join("/");
+    }
     var inDir = pathDir(pathClean(file));
     var outDir = pathDir(pathClean(out));
+    var relative = pathRelative(outDir,inDir);
 
-    var inParts = inDir.split("/");
-    var outParts = outDir.split("/");
-
-    while (inParts.length && outParts.length && outParts[0]==inParts[0]) {
-        outParts.splice(0,1);
-        inParts.splice(0,1);
-    }
-    var relative = outParts.join("/");
     css = css.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-        part = pathClean(part).replace(relative,"");
+        if (isAbsoluteOrData(part)) {
+            part = pathRelative(pathClean(part),outDir);
+        } else {
+            return whole;
+        }
         return 'url('+part+')';
     });
 
 
     var hash = "";
-
     var ext = out.split(".").pop();
     if (ext=='js' && css) {
 
-        var scriptName = out.replace("\\","/").split("/").pop();
-
+        var scriptName = out.replace(/\\/g,"/").split("/").pop();
         var f_css = function (css) {
             var styleNode = document.createElement("style");
             styleNode.type = "text/css";
