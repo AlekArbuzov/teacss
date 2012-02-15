@@ -27,6 +27,8 @@ teacss.ui.colorPicker = teacss.ui.Colorpicker = teacss.ui.Control.extend("teacss
 
         teacss.jQuery(function(){
             me.colorDiv.ColorPicker({
+                flat: me.options.flat,
+                color: me.options.value ? me.options.value.toString() : undefined,
                 eventName: 'mousedown',
                 onBeforeShow: function () {
                     me.setValue(me.value);
@@ -39,7 +41,8 @@ teacss.ui.colorPicker = teacss.ui.Colorpicker = teacss.ui.Control.extend("teacss
                     teacss.jQuery(el).css("color",teacss.Color.functions.hsl(0,100,color.toHSL().l>0.5?0:1).toString());
 
                     me.value = s_color;
-                    me.change();                }
+                    me.change();
+                }
             })
             teacss.jQuery('#' + teacss.jQuery(me.colorDiv).data('colorpickerId')).mousedown(function(e){
                 e.stopPropagation();

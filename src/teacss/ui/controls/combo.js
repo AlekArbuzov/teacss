@@ -203,7 +203,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
         });
         if (!teacss.jQuery.isFunction(me.items)) me.refresh();
         teacss.jQuery(function(){
-            me.panel.appendTo("body");
+            me.panel.appendTo(teacss.ui.layer);
             teacss.jQuery(document).mousedown(function(){
                 if (!me.panelClick) me.hide();
                 me.panelClick = false;

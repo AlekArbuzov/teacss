@@ -9,10 +9,10 @@ var js_cb = function (js) {
 
 require('fs').writeFileSync(
     "../lib/teacss.core.js",
-    teacss.build("teacss.core.tea","teacss.core.js",js_cb).js
+    teacss.build("teacss.core.tea","teacss.core.js",false,{js_cb:js_cb}).js
 );
 
 require('fs').writeFileSync(
     "../lib/teacss.full.js",
-    teacss.build("teacss.full.tea","teacss.full.js",js_cb).js
+    teacss.build("teacss.full.tea","teacss.full.js",false,{js_cb:js_cb}).js
 );

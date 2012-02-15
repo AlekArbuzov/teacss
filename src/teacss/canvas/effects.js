@@ -9,7 +9,7 @@ Canvas.effects = function() {
     ';
 
     function parseColor(color) {
-        color = $.color.parse(color);
+        color = teacss.jQuery.color.parse(color);
         return [color.r/255,color.g/255,color.b/255,color.a];
     }
 
@@ -19,7 +19,7 @@ Canvas.effects = function() {
     }
     effects.fromImage = function(url) {
         var me = this;
-        this.image = teacss.functions.image(url,true);
+        this.image = teacss.functions.image(url);
         if (!this.image.width) {
             this.image = document.createElement('canvas');
             this.image.width = 1;
@@ -350,6 +350,55 @@ Canvas.effects = function() {
         return this;
     }
 
+    /**
+     * Replace up to 5 color in the texture
+     * @param colors hash array in form { color1 : replacement1 , color2 : replacement2 } and so on
+     */
+    effects.replaceColors = function (colors) {
+        var gl = this.gl;
+        gl.replaceColorsShader = gl.replaceColorsShader || new Shader(gl,null, '\
+            uniform sampler2D texture;\
+            uniform vec3 color1;\
+            uniform vec3 color2;\
+            uniform vec3 color3;\
+            uniform vec3 color4;\
+            uniform vec3 color5;\
+            uniform vec3 replace1;\
+            uniform vec3 replace2;\
+            uniform vec3 replace3;\
+            uniform vec3 replace4;\
+            uniform vec3 replace5;\
+            varying vec2 texCoord;\
+            void main() {\
+                vec4 color = texture2D(texture, texCoord);\
+                if (color1==color.rgb) color.rgb = replace1;\
+                if (color2==color.rgb) color.rgb = replace2;\
+                if (color3==color.rgb) color.rgb = replace3;\
+                if (color4==color.rgb) color.rgb = replace4;\
+                if (color5==color.rgb) color.rgb = replace5;\
+                gl_FragColor = color;\
+            }\
+        ');
+
+        var color;
+        var params = {};
+        for (var i=1;i<=5;i++) {
+            params['color'+i] = [1,1,1];
+            params['replace'+i] = [1,1,1];
+        }
+        i = 1;
+        for (var key in colors) {
+            color = teacss.Color.parse(key);
+            params['color'+i] = [color.rgb[0]/255,color.rgb[1]/255,color.rgb[2]/255];
+            color = teacss.Color.parse(colors[key]);
+            params['replace'+i] = [color.rgb[0]/255,color.rgb[1]/255,color.rgb[2]/255];
+            if (++i>5) break;
+        }
+        this.draw3D(gl.replaceColorsShader,{tex0:this.getTexture()},params);
+        this.setState('texture');
+        return this;
+    }
+
     effects.preview = function () {
         this.getTexture().use(0);
         var gl = this.gl;
@@ -374,6 +423,46 @@ Canvas.effects = function() {
             .textures({texture:0})
             .uniforms({scale:[1,1]})
             .drawRect();
+    }
+
+    var previewCanvasCache = {};
+    effects.background = function () {
+        var canvas = this;
+        var selector = teacss.functions.tea.current.getSelector();
+        var id = selector.replace(/^([A-Za-z_-])/g,"");
+
+        Canvas.defaultElement.width = canvas.width;
+        Canvas.defaultElement.height = canvas.height;
+        canvas.preview();
+
+        var element, context;
+        var cached = previewCanvasCache[id];
+        if (cached) {
+            element = cached.element;
+            context = cached.context;
+        } else {
+            element = document.createElement("canvas");
+            context = element.getContext('2d');
+            previewCanvasCache[id] = { element: element, context : context }
+        }
+
+        element.width = canvas.width;
+        element.height = canvas.height;
+
+        context.drawImage(Canvas.defaultElement,0,0);
+
+        if (document.mozSetImageElement) {
+            if (selector)
+                teacss.jQuery(selector).css("background-image","-moz-element(#"+id+")");
+            else
+                tea.print('background-image:-moz-element(#'+id+');');
+            document.mozSetImageElement(id,element);
+        } else {
+            teacss.jQuery(selector).css("background-image","-webkit-canvas("+id+")");
+            context = document.getCSSCanvasContext("2d",id,canvas.width,canvas.height);
+            context.drawImage(element,0,0);
+        }
+        return canvas;
     }
     
     return effects;

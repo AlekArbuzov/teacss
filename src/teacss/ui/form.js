@@ -34,6 +34,10 @@ teacss.ui.form = function (selector,controlsCallback,options) {
             if (!silent && control && !control.options.silent) teacss.update();
         }
     }
+
+    var $ = teacss.jQuery;
+    teacss.ui.layer = $("<div id='teacss-ui'></div>");
+
     controlsCallback.call();
 
     var defaults = {
@@ -42,17 +46,10 @@ teacss.ui.form = function (selector,controlsCallback,options) {
         align: 'none',
         autoOpen: true
     }
-    var $ = teacss.jQuery;
-
     options = $.extend({},defaults,options);
     $(function(){ $(selector).eq(0).each(function(){
         if (!$("#teacss-ui").length)
-            $("body").append("<div id='teacss-ui'></div>");
-
-        var position = $(this).css("position");
-        if (position!='absolute') {
-            $(this).css("position",'relative');
-        }
+            $("body").append(teacss.ui.layer);
 
         var extra = {};
         if (options.align=='left') {

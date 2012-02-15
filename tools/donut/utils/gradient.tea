@@ -70,3 +70,22 @@
     background-image: -o-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
+.gradient.stops(stops,from) {
+    @{
+        from = from || 'top';
+
+        var stops_css = [];
+        for (var i=0;i<stops.length;i++) {
+            var stop = stops[i];
+            var coord = stop[0];
+            var color = stop[1];
+            stops_css.push( color.toString() + " " + coord + "%" );
+        }
+        stops_css = stops_css.join(", ");
+    }
+    background-image: linear-gradient(@from, @stops_css);
+    background-image: -o-linear-gradient(@from, @stops_css);
+    background-image: -moz-linear-gradient(@from, @stops_css);
+    background-image: -webkit-linear-gradient(@from, @stops_css);
+    background-image: -ms-linear-gradient(@from, @stops_css);
+}

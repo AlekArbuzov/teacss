@@ -60,9 +60,8 @@ teacss.image = teacss.functions.image = (function(){
         return ret;
     }
 
-    var constructor = function (sub,full,callback) {
-        full = full || false;
-        var url = ((full)?"":arguments.callee.base)+sub;
+    var constructor = function (sub) {
+        var url = sub;
         var end_deferred = false;
         var image = load(url,function(){
             if (end_deferred) endDeferred();

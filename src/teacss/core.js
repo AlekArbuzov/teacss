@@ -472,7 +472,6 @@ teacss = (function () {
                 sheets.push({
                     src:tea,
                     css:links[i].getAttribute('href'),
-                    target:links[i].getAttribute('target'),
                     linkNode:links[i],
                     styleNode:false,
                     scriptNode:false}
@@ -485,6 +484,7 @@ teacss = (function () {
     teacss.updating = false;
     teacss.error = function (e) {
         if (e.name=='runtime' || e.name=='parse') {
+            console.debug(e);
             (function () {
                 if (document.body) {
                     var err_div = document.getElementById('teacss_errors');

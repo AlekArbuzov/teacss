@@ -1,5 +1,5 @@
-// TODO: Write a memory manager for canvas
-var Canvas = teacss.Canvas = teacss.canvas = teacss.functions.canvas = teacss.functions.Canvas = function() {
+// TODO: review canVG for future use
+var Canvas = teacss.Canvas = teacss.functions.Canvas = function() {
     function wrap(name,func) {
         return function() {
             if (this.run || !Canvas.wrap) {

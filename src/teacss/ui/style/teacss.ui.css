@@ -74,9 +74,9 @@
     z-index: 1000000;
 }
 
-#teacss-ui .teacss-ui-dialog {
+#teacss-ui .teacss-ui-dialog .ui-dialog {
     font-size: 12px !important;
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
     bottom: 0;
@@ -134,6 +134,7 @@
 
 #teacss-ui .composer-panel.ui-accordion .ui-accordion-content {
     padding: 5px 5px 5px 5px;
+    height: auto !important;
 }
 
 #teacss-ui .composer-panel h3 {
@@ -158,68 +159,72 @@
     background: #aaa;
 }
 
-#teacss-ui .colorpicker {
+#teacss-ui > .colorpicker {
     position: fixed !important;
 }
 
-.combo-group {
+#teacss-ui .colorpicker_submit {
+    display: none;
+}
+
+#teacss-ui .combo-group {
     padding: 5px;
     background: #ccc !important;
 }
 
-.combo-item {
+#teacss-ui .combo-item {
     padding: 5px;
 }
 
-.combo-item img, .combo-sprite {
+#teacss-ui .combo-item img, #teacss-ui .combo-sprite {
     display: inline-block;
     vertical-align: middle;
 }
 
-.combo-item.selected {
+#teacss-ui .combo-item.selected {
     background: #f90 !important;
 }
 
-.combo-label {
+#teacss-ui .combo-label {
     padding-left: 10px;
 }
 
-.combo-icon {
+#teacss-ui .combo-icon {
     display: table-cell;
     text-align: center;
     line-height: 0;
     vertical-align: middle;
 }
 
-.combo-centered .combo-item {
+#teacss-ui .combo-centered .combo-item {
     text-align: center;
 }
 
-.combo-centered .combo-item .combo-label {
+#teacss-ui .combo-centered .combo-item .combo-label {
     padding: 0;
 }
 
-.icon-button {
+#teacss-ui .icon-button {
     padding: 2px !important;
 }
 
-.icon-button span.ui-button-text {
+#teacss-ui .icon-button span.ui-button-text {
     background: white;
     text-align: left;
     padding: 0px !important;
 }
 
-.icon-button .combo-item {
+#teacss-ui .icon-button .combo-item {
     padding: 0;
 }
 
-.only-icons .combo-item {
+#teacss-ui .only-icons .combo-item {
     padding: 5px;
     display: inline-block;
     text-align: center;
 }
 
-.only-icons .combo-item .combo-label {
+#teacss-ui .only-icons .combo-item .combo-label {
     padding: 0;
 }
 

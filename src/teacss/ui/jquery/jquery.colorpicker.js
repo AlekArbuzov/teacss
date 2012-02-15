@@ -35,9 +35,9 @@
 			},
 			fillHSBFields = function  (hsb, cal) {
 				$(cal).data('colorpicker').fields
-					.eq(4).val(hsb.h).end()
-					.eq(5).val(hsb.s).end()
-					.eq(6).val(hsb.b).end();
+					.eq(4).val(Math.floor(hsb.h)).end()
+					.eq(5).val(Math.floor(hsb.s)).end()
+					.eq(6).val(Math.floor(hsb.b)).end();
 			},
 			fillHexFields = function (hsb, cal) {
 				$(cal).data('colorpicker').fields
@@ -245,7 +245,9 @@
 				if (left + 356 > viewPort.l + viewPort.w) {
 					left -= 356;
 				}
-                if (cal.css("position")=='fixed') top -= $("html").scrollTop();
+                if (cal.css("position")=='fixed') {
+                    top -= Math.max($("html").scrollTop(),$("body").scrollTop());
+                }
 				cal.css({left: left - parseFloat($("body").css("margin-left")) + 'px', top: top + 'px'});
 				if (cal.data('colorpicker').onShow.apply(this, [cal.get(0)]) != false) {
                     cal.show();
