@@ -4,8 +4,8 @@ test('canvas',function(){
     stop();
     teacss.image.load([dir+'square.png'],function(list){
         start();
-        var canvas = new Canvas(dir+'square.png');
+        /*var canvas = new Canvas(dir+'square.png');
         canvas.brightnessContrast(0,50);
-        $("<img>").attr("src",canvas.toDataURL()).appendTo("body");
+        $("<img>").attr("src",canvas.toDataURL()).appendTo("body");*/
     })
 })

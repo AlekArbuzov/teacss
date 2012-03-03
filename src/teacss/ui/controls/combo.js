@@ -154,10 +154,7 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
             .click(function(e){
                 if (!me.enabled) return;
 
-                if (teacss.jQuery.isFunction(me.items)) {
-                    me.items = me.items();
-                    me.refresh();
-                }
+                me.itemsArray();
                 me.trigger("open");
                 me.selected_on_open = me.selected;
 
@@ -209,6 +206,14 @@ teacss.ui.combo = teacss.ui.Combo = teacss.ui.Control.extend("teacss.ui.Combo",{
                 me.panelClick = false;
             });
         })
+    },
+    itemsArray: function () {
+        var me = this;
+        if (teacss.jQuery.isFunction(me.items)) {
+            me.items = me.items();
+            me.refresh();
+        }
+        return me.items;
     },
     refresh : function () {
         var me = this;

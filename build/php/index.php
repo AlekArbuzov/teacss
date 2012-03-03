@@ -116,12 +116,12 @@ class Controller {
             foreach ($data as $item) {
                 $urlParts = parse_url($item['href']);
                 $file = $_SERVER['DOCUMENT_ROOT'] . "/" . trim($urlParts['path'],"/\\");
-                if (file_exists($file))
+                //if (file_exists($file))
                     file_put_contents($file,$item['css']);
-                else {
+                /*else {
                     echo "file not exists: ".$item['href'];
                     return;
-                }
+                }*/
             }
             echo "ok";
             return;

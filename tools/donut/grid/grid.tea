@@ -9,11 +9,16 @@
     grid.gutterWidth = 20
 }
 
-.grid.container() {
-    @ siteWidth = (grid.columnCount * grid.columnWidth) + (grid.gutterWidth * (grid.columnCount-1))
-    width: @{siteWidth}px;
+.container(width) {
+    @ width = width || '900px';
+    width: @width;
     margin: 0 auto;
     .clearfix();
+}
+
+.grid.container() {
+    @ siteWidth = (grid.columnCount * grid.columnWidth) + (grid.gutterWidth * (grid.columnCount-1))
+    .container(siteWidth+'px');
 }
 
 .grid.columns(columnSpan) {

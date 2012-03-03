@@ -107,7 +107,7 @@
     bottom: 0 !important;
 }
 
-#teacss-ui .teacss-ui-dialog.align-left .ui-dialog .ui-dialog-content {
+#teacss-ui .teacss-ui-dialog .ui-dialog .ui-dialog-content {
     position: absolute;
     height: auto !important;
     top: 30px;
