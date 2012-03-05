@@ -2,7 +2,8 @@ teacss = (function () {
     var teacss = {
         functions: {},
         sheets: [],
-        parsers:{}
+        parsers: {},
+        aliases: {}
     };
 
     var files = {};
@@ -307,13 +308,15 @@ teacss = (function () {
                 rule = rule.substring(0,last+1);
                 raw = raw.substring(0,last+1);
 
-                var mixin_regex = /^\.[0-9a-zA-Z_$\.]*?\(.*?\)$/;
+                var mixin_declare_regex = /^\.([0-9a-zA-Z_$\.]*?)(<([0-9a-zA-Z_-]+?)>)?(\(.*?\))$/;
+                var mixin_execute_regex = /^\.[0-9a-zA-Z_$\.]*?\(.*?\)$/;
 
                 if (code[s]=='{') {
-                    if (mixin_regex.test(raw)) {
-                        var parts = raw.split("(");
-                        var params = '('+parts[1];
-                        var name = parts[0].substring(1);
+                    var match;
+                    if (match = mixin_declare_regex.exec(raw)) {
+                        var params = match[4];
+                        var name = match[1];
+                        if (match[3]) teacss.aliases[match[3]] = name;
                         output += name + postfix + '= tea.f(function'+params+'{';
                     } else {
                         if (state=='namespace')
@@ -326,10 +329,31 @@ teacss = (function () {
                     push_state("css");
 
                 } else if (code[s]==';' || code[s]=='}') {
-                    if (mixin_regex.test(raw)) {
+                    if (mixin_execute_regex.test(raw)) {
                         output += raw.substring(1)+';'+postfix;
                     } else {
-                        output += 'tea.print("'+rule+'");'+postfix;
+                        var is_alias = false;
+                        if (rule[0]!='!') {
+                            for (var alias in teacss.aliases) {
+                                if (raw.substring(0,alias.length)==alias) {
+                                    var reg = new RegExp(alias+"(\\s)*?(:(.*))?","m");
+                                    var match;
+                                    if (match = reg.exec(rule)) {
+                                        is_alias = true;
+                                        if (match[3]) {
+                                            var args = '"'+trim(match[3])+'"';
+                                            args = args.replace(/(\+)?\"\"(\+)?/g,"");
+                                            output += teacss.aliases[alias]+'('+args+');'+postfix;
+                                        } else {
+                                            output += teacss.aliases[alias]+'();'+postfix;
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            rule = rule.substring(1);
+                        }
+                        if (!is_alias) output += 'tea.print("'+rule+'");'+postfix;
                     }
                     if (code[s]==';') next();
                     pop_state();

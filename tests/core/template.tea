@@ -1,5 +1,13 @@
-@media {
-    body {
-        color: red;
-    }
+.border_radius<border-radius>(radius) {
+    @ radius = radius || '5px';
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+           !border-radius: @radius;
+}
+
+@ boo = '5px';
+
+body {
+    border-radius: @boo;
+    border-radius: 5px;
 }
