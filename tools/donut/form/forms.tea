@@ -36,6 +36,7 @@
 .inputGridSystem.generate(gridColumns, gridColumnWidth, gridGutterWidth) {
     @ var gridRowWidth = (gridColumns * gridColumnWidth) + (gridGutterWidth * (gridColumns - 1));
     input,
+    select,
     textarea,
     .uneditable-input {
         &.span1     { .inputGridSystem.inputColumns(gridGutterWidth, gridColumnWidth, gridRowWidth, 1); }

@@ -15,6 +15,28 @@
     }
 }
 
+// Large
+.buttonLarge() {
+    padding: 9px 14px;
+    font-size: @{parseFloat(baseFontSize)+2}px;
+    line-height: normal;
+    .border_radius('5px');
+    .icon {
+        margin-top: 1px;
+    }
+}
+
+// Small
+.buttonSmall {
+    padding: 5px 9px;
+    font-size: @{parseFloat(baseFontSize) - 2}px;
+    line-height: @{parseFloat(baseLineHeight) - 2}px;
+    .icon {
+        margin-top: -1px;
+    }
+}
+
+
 .buttonPrimary() {
     .buttonBackground(primaryButtonBackground, spin(primaryButtonBackground, 20));
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);

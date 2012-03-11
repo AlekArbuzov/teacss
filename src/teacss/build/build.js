@@ -82,7 +82,7 @@ teacss.build = (function () {
         teacss.appendScript = function(href) {}
         teacss.appendStyle = function(href) {}
         teacss.update = function () {
-            var tea_f = teacss.parseFile(file,true);
+            var tea_f = teacss.parseSheetFile(file,true);
             for (var a=0;a<tea_f.appends.length;a++) {
                 var append_name = tea_f.appends[a];
                 if (append_name.split(".").pop()=="css") {

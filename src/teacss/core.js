@@ -607,11 +607,15 @@ teacss = (function () {
         return scriptNode;
     }
 
+    teacss.parseSheetFile = function (src,return_hash) {
+        parseLine = 1;
+        return teacss.parseFile(src,return_hash);
+    }
+
     teacss.parseSheet = function (src,sheet) {
         var code = "teacss.getSheetFunction(function() {\n";
-        parseLine = 1;
-        var parsed = teacss.parseFile(src);
         var variableLines = 0;
+        var parsed = teacss.parseSheetFile(src);
         for (var name in teacss.functions) {
             code += "var "+name+" = teacss.functions."+name+";\n";
             variableLines++;
