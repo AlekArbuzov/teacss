@@ -1,0 +1,26 @@
+.scope {
+    @teavar: 99px;
+    .mixin () {
+        width: @teavar;
+    }
+}
+
+.class {
+    .scope > .mixin;
+}
+
+.overwrite {
+    @teavar: 0px;
+    .scope > .mixin;
+}
+
+.nested {
+    @teavar: 5px;
+    .mixin () {
+        width: @teavar;
+    }
+    .class {
+        @teavar: 10px;
+       .mixin;
+    }
+}

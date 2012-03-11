@@ -1,0 +1,26 @@
+.parens {
+  @teavar: 1px;
+  border: (@teavar * 2) solid black;
+  margin: (@teavar * 1) (@teavar + 2) (4 * 4) 3;
+  width: (6 * 6);
+  padding: 2px (6px * 6px);
+}
+
+.more-parens {
+  @teavar: (2 * 2);
+  padding: (2 * @teavar) 4 4 (@teavar * 1px);
+  width: (@teavar * @teavar) * 6;
+  height: (7 * 7) + (8 * 8);
+  margin: 4 * (5 + 5) / 2 - (@teavar * 2);
+  //margin: (6 * 6)px;
+}
+
+.nested-parens {
+  width: 2 * (4 * (2 + (1 + 6))) - 1;
+  height: ((2+3)*(2+3) / (9-4)) + 1;
+}
+
+.mixed-units {
+  margin: 2px 4em 1 5pc;
+  padding: (2px + 4px) 1em 2px 2;
+}
