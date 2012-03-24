@@ -8,8 +8,12 @@
   #rgba {
     color: rgba(255, 238, 170, 0.1);
   }
+@{
+    col = new teacss.Color(255, 238, 170, 1);
+    val = col.toHSL();
+}
   #argb {
-    color: argb(rgba(255, 238, 170, 0.1));
+    color: @val;
   }
 }
 
@@ -32,11 +36,21 @@
     color: hsla(11, 20%, 20%, 0.6);
 }
 
+@ v1 = 0xdddddd;
+@ v2 = 0x111111;
+
+@{
+    a = v2 - v1;
+    if (a < 0) { a = "#000000"; }
+    b = "#" + (v1 + v2).toString(16);
+    c = v1 * v2;
+    if (c > 0xffffff) {c = "#ffffff"; }
+}
+
 #overflow {
-  .a { color: #111111 - #444444; } // #000000
-  .b { color: #eee + #fff; } // #ffffff
-  .c { color: #aaa * 3; } // #ffffff
-  .d { color: #00ee00 + #009900; } // #00ff00
+  .a { color: @a } // #000000
+  .b { color: @b } // #eeeeee
+  .c { color: @c } // #ffffff
 }
 
 #grey {
