@@ -1,0 +1,104 @@
+#tab-debug pre {
+    font-size: 16px;
+}
+
+.composer-body {
+    margin:0px 0 0 180px;
+    position:relative;
+}
+
+.left-panel {
+    height: 100% !important;
+}
+
+.composer-panel.ui-accordion .ui-accordion-content.profiles {
+    padding: 10px;
+}
+
+.composer-panel.ui-accordion .ui-accordion-content.profiles button {
+    font-size: 16px;
+    background:  #060;
+    color: white;
+    padding: 5px 10px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.files {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.files .folder > .ui-accordion-header {
+    background: url(images/ui-bg_glass_100_f6f6f6_1x400.png) repeat-x scroll 50% 50% #F6F6F6;
+    border: none;
+}
+
+.files .ui-accordion .ui-accordion-header .ui-icon.save {
+    left: auto;
+    right: 8px;
+    display: none;
+}
+
+.files .ui-accordion .ui-accordion-header .ui-icon.delete {
+    left: auto;
+    right: 8px;
+}
+
+.files .ui-accordion .ui-accordion-header .ui-icon.new_file {
+    left: auto;
+    right: 8px;
+}
+
+.files .file > .ui-accordion-header.changed .ui-icon.save {
+    display: block;
+}
+
+.files .ui-accordion-header .ui-icon {
+    background-image: url("images/ui-icons_ef8c08_256x240.png") !important;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
+
+.CodeMirror-scroll {
+    height: 100% !important;
+    overflow: auto !important;
+}
+
+.composer-panel {
+    background:#eee;
+    position:absolute;
+    left:0;
+    right:2px;
+    width: auto !important;
+    top:0;
+    bottom:0;
+    padding:0px 0px;
+    color: #000;
+}
+
+.composer-panel.ui-accordion .ui-accordion-content {
+    padding: 5px 5px 5px 5px;
+}
+
+.composer-panel h3 {
+    font-weight: bold;
+}
+
+.composer-panel label {
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 3px;
+}
+
+.composer-panel select {
+    width: 100%;
+}
+
+.composer-panel input {
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,568 @@
+/*
+ * jQuery UI CSS Framework 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.teacss-ui .ui-helper-hidden , #teacss-layer .ui-helper-hidden , #teacss-layer .ui-helper-hidden { display: none; }
+.teacss-ui .ui-helper-hidden-accessible , #teacss-layer .ui-helper-hidden-accessible , #teacss-layer .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
+.teacss-ui .ui-helper-reset , #teacss-layer .ui-helper-reset , #teacss-layer .ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.teacss-ui .ui-helper-clearfix:after , #teacss-layer .ui-helper-clearfix:after , #teacss-layer .ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.teacss-ui .ui-helper-clearfix , #teacss-layer .ui-helper-clearfix , #teacss-layer .ui-helper-clearfix { display: inline-block; }
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix { height:1%; }
+.teacss-ui .ui-helper-clearfix , #teacss-layer .ui-helper-clearfix , #teacss-layer .ui-helper-clearfix { display:block; }
+/* end clearfix */
+.teacss-ui .ui-helper-zfix , #teacss-layer .ui-helper-zfix , #teacss-layer .ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+
+/* Interaction Cues
+----------------------------------*/
+.teacss-ui .ui-state-disabled , #teacss-layer .ui-state-disabled , #teacss-layer .ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.teacss-ui .ui-icon , #teacss-layer .ui-icon , #teacss-layer .ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.teacss-ui .ui-widget-overlay , #teacss-layer .ui-widget-overlay , #teacss-layer .ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/*
+ * jQuery UI CSS Framework 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+ */
+
+
+/* Component containers
+----------------------------------*/
+.teacss-ui .ui-widget , #teacss-layer .ui-widget , #teacss-layer .ui-widget { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1.1em; }
+.teacss-ui .ui-widget .ui-widget , #teacss-layer .ui-widget .ui-widget , #teacss-layer .ui-widget .ui-widget { font-size: 1em; }
+.teacss-ui .ui-widget input, #teacss-layer .ui-widget input, .teacss-ui .ui-widget select, #teacss-layer .ui-widget select, .teacss-ui .ui-widget textarea, #teacss-layer .ui-widget textarea, .teacss-ui .ui-widget button , #teacss-layer .ui-widget button , #teacss-layer .ui-widget input, .teacss-ui .ui-widget select, #teacss-layer .ui-widget select, .teacss-ui .ui-widget textarea, #teacss-layer .ui-widget textarea, .teacss-ui .ui-widget button , #teacss-layer .ui-widget button { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1em; }
+.teacss-ui .ui-widget-content , #teacss-layer .ui-widget-content , #teacss-layer .ui-widget-content { border: 1px solid #dddddd; background: #eeeeee url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x; color: #333333; }
+.teacss-ui .ui-widget-content a , #teacss-layer .ui-widget-content a , #teacss-layer .ui-widget-content a { color: #333333; }
+.teacss-ui .ui-widget-header , #teacss-layer .ui-widget-header , #teacss-layer .ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.teacss-ui .ui-widget-header a , #teacss-layer .ui-widget-header a , #teacss-layer .ui-widget-header a { color: #ffffff; }
+
+/* Interaction states
+----------------------------------*/
+.teacss-ui .ui-state-default, #teacss-layer .ui-state-default, .teacss-ui .ui-widget-content .ui-state-default, #teacss-layer .ui-widget-content .ui-state-default, .teacss-ui .ui-widget-header .ui-state-default , #teacss-layer .ui-widget-header .ui-state-default , #teacss-layer .ui-state-default, .teacss-ui .ui-widget-content .ui-state-default, #teacss-layer .ui-widget-content .ui-state-default, .teacss-ui .ui-widget-header .ui-state-default , #teacss-layer .ui-widget-header .ui-state-default { border: 1px solid #cccccc; background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #1c94c4; }
+.teacss-ui .ui-state-default a, #teacss-layer .ui-state-default a, .teacss-ui .ui-state-default a:link, #teacss-layer .ui-state-default a:link, .teacss-ui .ui-state-default a:visited , #teacss-layer .ui-state-default a:visited , #teacss-layer .ui-state-default a, .teacss-ui .ui-state-default a:link, #teacss-layer .ui-state-default a:link, .teacss-ui .ui-state-default a:visited , #teacss-layer .ui-state-default a:visited { color: #1c94c4; text-decoration: none; }
+.teacss-ui .ui-state-hover, #teacss-layer .ui-state-hover, .teacss-ui .ui-widget-content .ui-state-hover, #teacss-layer .ui-widget-content .ui-state-hover, .teacss-ui .ui-widget-header .ui-state-hover, #teacss-layer .ui-widget-header .ui-state-hover, .teacss-ui .ui-state-focus, #teacss-layer .ui-state-focus, .teacss-ui .ui-widget-content .ui-state-focus, #teacss-layer .ui-widget-content .ui-state-focus, .teacss-ui .ui-widget-header .ui-state-focus , #teacss-layer .ui-widget-header .ui-state-focus , #teacss-layer .ui-state-hover, .teacss-ui .ui-widget-content .ui-state-hover, #teacss-layer .ui-widget-content .ui-state-hover, .teacss-ui .ui-widget-header .ui-state-hover, #teacss-layer .ui-widget-header .ui-state-hover, .teacss-ui .ui-state-focus, #teacss-layer .ui-state-focus, .teacss-ui .ui-widget-content .ui-state-focus, #teacss-layer .ui-widget-content .ui-state-focus, .teacss-ui .ui-widget-header .ui-state-focus , #teacss-layer .ui-widget-header .ui-state-focus { border: 1px solid #fbcb09; background: #fdf5ce url(images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #c77405; }
+.teacss-ui .ui-state-hover a, #teacss-layer .ui-state-hover a, .teacss-ui .ui-state-hover a:hover , #teacss-layer .ui-state-hover a:hover , #teacss-layer .ui-state-hover a, .teacss-ui .ui-state-hover a:hover , #teacss-layer .ui-state-hover a:hover { color: #c77405; text-decoration: none; }
+.teacss-ui .ui-state-active, #teacss-layer .ui-state-active, .teacss-ui .ui-widget-content .ui-state-active, #teacss-layer .ui-widget-content .ui-state-active, .teacss-ui .ui-widget-header .ui-state-active , #teacss-layer .ui-widget-header .ui-state-active , #teacss-layer .ui-state-active, .teacss-ui .ui-widget-content .ui-state-active, #teacss-layer .ui-widget-content .ui-state-active, .teacss-ui .ui-widget-header .ui-state-active , #teacss-layer .ui-widget-header .ui-state-active { border: 1px solid #fbd850; background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #eb8f00; }
+.teacss-ui .ui-state-active a, #teacss-layer .ui-state-active a, .teacss-ui .ui-state-active a:link, #teacss-layer .ui-state-active a:link, .teacss-ui .ui-state-active a:visited , #teacss-layer .ui-state-active a:visited , #teacss-layer .ui-state-active a, .teacss-ui .ui-state-active a:link, #teacss-layer .ui-state-active a:link, .teacss-ui .ui-state-active a:visited , #teacss-layer .ui-state-active a:visited { color: #eb8f00; text-decoration: none; }
+.teacss-ui .ui-widget :active , #teacss-layer .ui-widget :active , #teacss-layer .ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.teacss-ui .ui-state-highlight, #teacss-layer .ui-state-highlight, .teacss-ui .ui-widget-content .ui-state-highlight, #teacss-layer .ui-widget-content .ui-state-highlight, .teacss-ui .ui-widget-header .ui-state-highlight  , #teacss-layer .ui-widget-header .ui-state-highlight  , #teacss-layer .ui-state-highlight, .teacss-ui .ui-widget-content .ui-state-highlight, #teacss-layer .ui-widget-content .ui-state-highlight, .teacss-ui .ui-widget-header .ui-state-highlight  , #teacss-layer .ui-widget-header .ui-state-highlight  {border: 1px solid #fed22f; background: #ffe45c url(images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x; color: #363636; }
+.teacss-ui .ui-state-highlight a, #teacss-layer .ui-state-highlight a, .teacss-ui .ui-widget-content .ui-state-highlight a, #teacss-layer .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a , #teacss-layer .ui-state-highlight a, .teacss-ui .ui-widget-content .ui-state-highlight a, #teacss-layer .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
+.teacss-ui .ui-state-error, #teacss-layer .ui-state-error, .teacss-ui .ui-widget-content .ui-state-error, #teacss-layer .ui-widget-content .ui-state-error, .teacss-ui .ui-widget-header .ui-state-error , #teacss-layer .ui-widget-header .ui-state-error , #teacss-layer .ui-state-error, .teacss-ui .ui-widget-content .ui-state-error, #teacss-layer .ui-widget-content .ui-state-error, .teacss-ui .ui-widget-header .ui-state-error , #teacss-layer .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #b81900 url(images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat; color: #ffffff; }
+.teacss-ui .ui-state-error a, #teacss-layer .ui-state-error a, .teacss-ui .ui-widget-content .ui-state-error a, #teacss-layer .ui-widget-content .ui-state-error a, .teacss-ui .ui-widget-header .ui-state-error a , #teacss-layer .ui-widget-header .ui-state-error a , #teacss-layer .ui-state-error a, .teacss-ui .ui-widget-content .ui-state-error a, #teacss-layer .ui-widget-content .ui-state-error a, .teacss-ui .ui-widget-header .ui-state-error a , #teacss-layer .ui-widget-header .ui-state-error a { color: #ffffff; }
+.teacss-ui .ui-state-error-text, #teacss-layer .ui-state-error-text, .teacss-ui .ui-widget-content .ui-state-error-text, #teacss-layer .ui-widget-content .ui-state-error-text, .teacss-ui .ui-widget-header .ui-state-error-text , #teacss-layer .ui-widget-header .ui-state-error-text , #teacss-layer .ui-state-error-text, .teacss-ui .ui-widget-content .ui-state-error-text, #teacss-layer .ui-widget-content .ui-state-error-text, .teacss-ui .ui-widget-header .ui-state-error-text , #teacss-layer .ui-widget-header .ui-state-error-text { color: #ffffff; }
+.teacss-ui .ui-priority-primary, #teacss-layer .ui-priority-primary, .teacss-ui .ui-widget-content .ui-priority-primary, #teacss-layer .ui-widget-content .ui-priority-primary, .teacss-ui .ui-widget-header .ui-priority-primary , #teacss-layer .ui-widget-header .ui-priority-primary , #teacss-layer .ui-priority-primary, .teacss-ui .ui-widget-content .ui-priority-primary, #teacss-layer .ui-widget-content .ui-priority-primary, .teacss-ui .ui-widget-header .ui-priority-primary , #teacss-layer .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.teacss-ui .ui-priority-secondary, #teacss-layer .ui-priority-secondary, .teacss-ui .ui-widget-content .ui-priority-secondary, #teacss-layer .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary , #teacss-layer .ui-priority-secondary, .teacss-ui .ui-widget-content .ui-priority-secondary, #teacss-layer .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.teacss-ui .ui-state-disabled, #teacss-layer .ui-state-disabled, .teacss-ui .ui-widget-content .ui-state-disabled, #teacss-layer .ui-widget-content .ui-state-disabled, .teacss-ui .ui-widget-header .ui-state-disabled , #teacss-layer .ui-widget-header .ui-state-disabled , #teacss-layer .ui-state-disabled, .teacss-ui .ui-widget-content .ui-state-disabled, #teacss-layer .ui-widget-content .ui-state-disabled, .teacss-ui .ui-widget-header .ui-state-disabled , #teacss-layer .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.teacss-ui .ui-icon , #teacss-layer .ui-icon , #teacss-layer .ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_222222_256x240.png); }
+.teacss-ui .ui-widget-content .ui-icon , #teacss-layer .ui-widget-content .ui-icon , #teacss-layer .ui-widget-content .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
+.teacss-ui .ui-widget-header .ui-icon , #teacss-layer .ui-widget-header .ui-icon , #teacss-layer .ui-widget-header .ui-icon {background-image: url(images/ui-icons_ffffff_256x240.png); }
+.teacss-ui .ui-state-default .ui-icon , #teacss-layer .ui-state-default .ui-icon , #teacss-layer .ui-state-default .ui-icon { background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.teacss-ui .ui-state-hover .ui-icon, #teacss-layer .ui-state-hover .ui-icon, .teacss-ui .ui-state-focus .ui-icon , #teacss-layer .ui-state-focus .ui-icon , #teacss-layer .ui-state-hover .ui-icon, .teacss-ui .ui-state-focus .ui-icon , #teacss-layer .ui-state-focus .ui-icon {background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.teacss-ui .ui-state-active .ui-icon , #teacss-layer .ui-state-active .ui-icon , #teacss-layer .ui-state-active .ui-icon {background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.teacss-ui .ui-state-highlight .ui-icon , #teacss-layer .ui-state-highlight .ui-icon , #teacss-layer .ui-state-highlight .ui-icon {background-image: url(images/ui-icons_228ef1_256x240.png); }
+.teacss-ui .ui-state-error .ui-icon, #teacss-layer .ui-state-error .ui-icon, .teacss-ui .ui-state-error-text .ui-icon , #teacss-layer .ui-state-error-text .ui-icon , #teacss-layer .ui-state-error .ui-icon, .teacss-ui .ui-state-error-text .ui-icon , #teacss-layer .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_ffd27a_256x240.png); }
+
+/* positioning */
+.teacss-ui .ui-icon-carat-1-n , #teacss-layer .ui-icon-carat-1-n , #teacss-layer .ui-icon-carat-1-n { background-position: 0 0; }
+.teacss-ui .ui-icon-carat-1-ne , #teacss-layer .ui-icon-carat-1-ne , #teacss-layer .ui-icon-carat-1-ne { background-position: -16px 0; }
+.teacss-ui .ui-icon-carat-1-e , #teacss-layer .ui-icon-carat-1-e , #teacss-layer .ui-icon-carat-1-e { background-position: -32px 0; }
+.teacss-ui .ui-icon-carat-1-se , #teacss-layer .ui-icon-carat-1-se , #teacss-layer .ui-icon-carat-1-se { background-position: -48px 0; }
+.teacss-ui .ui-icon-carat-1-s , #teacss-layer .ui-icon-carat-1-s , #teacss-layer .ui-icon-carat-1-s { background-position: -64px 0; }
+.teacss-ui .ui-icon-carat-1-sw , #teacss-layer .ui-icon-carat-1-sw , #teacss-layer .ui-icon-carat-1-sw { background-position: -80px 0; }
+.teacss-ui .ui-icon-carat-1-w , #teacss-layer .ui-icon-carat-1-w , #teacss-layer .ui-icon-carat-1-w { background-position: -96px 0; }
+.teacss-ui .ui-icon-carat-1-nw , #teacss-layer .ui-icon-carat-1-nw , #teacss-layer .ui-icon-carat-1-nw { background-position: -112px 0; }
+.teacss-ui .ui-icon-carat-2-n-s , #teacss-layer .ui-icon-carat-2-n-s , #teacss-layer .ui-icon-carat-2-n-s { background-position: -128px 0; }
+.teacss-ui .ui-icon-carat-2-e-w , #teacss-layer .ui-icon-carat-2-e-w , #teacss-layer .ui-icon-carat-2-e-w { background-position: -144px 0; }
+.teacss-ui .ui-icon-triangle-1-n , #teacss-layer .ui-icon-triangle-1-n , #teacss-layer .ui-icon-triangle-1-n { background-position: 0 -16px; }
+.teacss-ui .ui-icon-triangle-1-ne , #teacss-layer .ui-icon-triangle-1-ne , #teacss-layer .ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.teacss-ui .ui-icon-triangle-1-e , #teacss-layer .ui-icon-triangle-1-e , #teacss-layer .ui-icon-triangle-1-e { background-position: -32px -16px; }
+.teacss-ui .ui-icon-triangle-1-se , #teacss-layer .ui-icon-triangle-1-se , #teacss-layer .ui-icon-triangle-1-se { background-position: -48px -16px; }
+.teacss-ui .ui-icon-triangle-1-s , #teacss-layer .ui-icon-triangle-1-s , #teacss-layer .ui-icon-triangle-1-s { background-position: -64px -16px; }
+.teacss-ui .ui-icon-triangle-1-sw , #teacss-layer .ui-icon-triangle-1-sw , #teacss-layer .ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.teacss-ui .ui-icon-triangle-1-w , #teacss-layer .ui-icon-triangle-1-w , #teacss-layer .ui-icon-triangle-1-w { background-position: -96px -16px; }
+.teacss-ui .ui-icon-triangle-1-nw , #teacss-layer .ui-icon-triangle-1-nw , #teacss-layer .ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.teacss-ui .ui-icon-triangle-2-n-s , #teacss-layer .ui-icon-triangle-2-n-s , #teacss-layer .ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.teacss-ui .ui-icon-triangle-2-e-w , #teacss-layer .ui-icon-triangle-2-e-w , #teacss-layer .ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.teacss-ui .ui-icon-arrow-1-n , #teacss-layer .ui-icon-arrow-1-n , #teacss-layer .ui-icon-arrow-1-n { background-position: 0 -32px; }
+.teacss-ui .ui-icon-arrow-1-ne , #teacss-layer .ui-icon-arrow-1-ne , #teacss-layer .ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.teacss-ui .ui-icon-arrow-1-e , #teacss-layer .ui-icon-arrow-1-e , #teacss-layer .ui-icon-arrow-1-e { background-position: -32px -32px; }
+.teacss-ui .ui-icon-arrow-1-se , #teacss-layer .ui-icon-arrow-1-se , #teacss-layer .ui-icon-arrow-1-se { background-position: -48px -32px; }
+.teacss-ui .ui-icon-arrow-1-s , #teacss-layer .ui-icon-arrow-1-s , #teacss-layer .ui-icon-arrow-1-s { background-position: -64px -32px; }
+.teacss-ui .ui-icon-arrow-1-sw , #teacss-layer .ui-icon-arrow-1-sw , #teacss-layer .ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.teacss-ui .ui-icon-arrow-1-w , #teacss-layer .ui-icon-arrow-1-w , #teacss-layer .ui-icon-arrow-1-w { background-position: -96px -32px; }
+.teacss-ui .ui-icon-arrow-1-nw , #teacss-layer .ui-icon-arrow-1-nw , #teacss-layer .ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.teacss-ui .ui-icon-arrow-2-n-s , #teacss-layer .ui-icon-arrow-2-n-s , #teacss-layer .ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.teacss-ui .ui-icon-arrow-2-ne-sw , #teacss-layer .ui-icon-arrow-2-ne-sw , #teacss-layer .ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.teacss-ui .ui-icon-arrow-2-e-w , #teacss-layer .ui-icon-arrow-2-e-w , #teacss-layer .ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.teacss-ui .ui-icon-arrow-2-se-nw , #teacss-layer .ui-icon-arrow-2-se-nw , #teacss-layer .ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.teacss-ui .ui-icon-arrowstop-1-n , #teacss-layer .ui-icon-arrowstop-1-n , #teacss-layer .ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.teacss-ui .ui-icon-arrowstop-1-e , #teacss-layer .ui-icon-arrowstop-1-e , #teacss-layer .ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.teacss-ui .ui-icon-arrowstop-1-s , #teacss-layer .ui-icon-arrowstop-1-s , #teacss-layer .ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.teacss-ui .ui-icon-arrowstop-1-w , #teacss-layer .ui-icon-arrowstop-1-w , #teacss-layer .ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.teacss-ui .ui-icon-arrowthick-1-n , #teacss-layer .ui-icon-arrowthick-1-n , #teacss-layer .ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.teacss-ui .ui-icon-arrowthick-1-ne , #teacss-layer .ui-icon-arrowthick-1-ne , #teacss-layer .ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-e , #teacss-layer .ui-icon-arrowthick-1-e , #teacss-layer .ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-se , #teacss-layer .ui-icon-arrowthick-1-se , #teacss-layer .ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-s , #teacss-layer .ui-icon-arrowthick-1-s , #teacss-layer .ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-sw , #teacss-layer .ui-icon-arrowthick-1-sw , #teacss-layer .ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-w , #teacss-layer .ui-icon-arrowthick-1-w , #teacss-layer .ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.teacss-ui .ui-icon-arrowthick-1-nw , #teacss-layer .ui-icon-arrowthick-1-nw , #teacss-layer .ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.teacss-ui .ui-icon-arrowthick-2-n-s , #teacss-layer .ui-icon-arrowthick-2-n-s , #teacss-layer .ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.teacss-ui .ui-icon-arrowthick-2-ne-sw , #teacss-layer .ui-icon-arrowthick-2-ne-sw , #teacss-layer .ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.teacss-ui .ui-icon-arrowthick-2-e-w , #teacss-layer .ui-icon-arrowthick-2-e-w , #teacss-layer .ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.teacss-ui .ui-icon-arrowthick-2-se-nw , #teacss-layer .ui-icon-arrowthick-2-se-nw , #teacss-layer .ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.teacss-ui .ui-icon-arrowthickstop-1-n , #teacss-layer .ui-icon-arrowthickstop-1-n , #teacss-layer .ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.teacss-ui .ui-icon-arrowthickstop-1-e , #teacss-layer .ui-icon-arrowthickstop-1-e , #teacss-layer .ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.teacss-ui .ui-icon-arrowthickstop-1-s , #teacss-layer .ui-icon-arrowthickstop-1-s , #teacss-layer .ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.teacss-ui .ui-icon-arrowthickstop-1-w , #teacss-layer .ui-icon-arrowthickstop-1-w , #teacss-layer .ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.teacss-ui .ui-icon-arrowreturnthick-1-w , #teacss-layer .ui-icon-arrowreturnthick-1-w , #teacss-layer .ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.teacss-ui .ui-icon-arrowreturnthick-1-n , #teacss-layer .ui-icon-arrowreturnthick-1-n , #teacss-layer .ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.teacss-ui .ui-icon-arrowreturnthick-1-e , #teacss-layer .ui-icon-arrowreturnthick-1-e , #teacss-layer .ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.teacss-ui .ui-icon-arrowreturnthick-1-s , #teacss-layer .ui-icon-arrowreturnthick-1-s , #teacss-layer .ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.teacss-ui .ui-icon-arrowreturn-1-w , #teacss-layer .ui-icon-arrowreturn-1-w , #teacss-layer .ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.teacss-ui .ui-icon-arrowreturn-1-n , #teacss-layer .ui-icon-arrowreturn-1-n , #teacss-layer .ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.teacss-ui .ui-icon-arrowreturn-1-e , #teacss-layer .ui-icon-arrowreturn-1-e , #teacss-layer .ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.teacss-ui .ui-icon-arrowreturn-1-s , #teacss-layer .ui-icon-arrowreturn-1-s , #teacss-layer .ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.teacss-ui .ui-icon-arrowrefresh-1-w , #teacss-layer .ui-icon-arrowrefresh-1-w , #teacss-layer .ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.teacss-ui .ui-icon-arrowrefresh-1-n , #teacss-layer .ui-icon-arrowrefresh-1-n , #teacss-layer .ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.teacss-ui .ui-icon-arrowrefresh-1-e , #teacss-layer .ui-icon-arrowrefresh-1-e , #teacss-layer .ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.teacss-ui .ui-icon-arrowrefresh-1-s , #teacss-layer .ui-icon-arrowrefresh-1-s , #teacss-layer .ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.teacss-ui .ui-icon-arrow-4 , #teacss-layer .ui-icon-arrow-4 , #teacss-layer .ui-icon-arrow-4 { background-position: 0 -80px; }
+.teacss-ui .ui-icon-arrow-4-diag , #teacss-layer .ui-icon-arrow-4-diag , #teacss-layer .ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.teacss-ui .ui-icon-extlink , #teacss-layer .ui-icon-extlink , #teacss-layer .ui-icon-extlink { background-position: -32px -80px; }
+.teacss-ui .ui-icon-newwin , #teacss-layer .ui-icon-newwin , #teacss-layer .ui-icon-newwin { background-position: -48px -80px; }
+.teacss-ui .ui-icon-refresh , #teacss-layer .ui-icon-refresh , #teacss-layer .ui-icon-refresh { background-position: -64px -80px; }
+.teacss-ui .ui-icon-shuffle , #teacss-layer .ui-icon-shuffle , #teacss-layer .ui-icon-shuffle { background-position: -80px -80px; }
+.teacss-ui .ui-icon-transfer-e-w , #teacss-layer .ui-icon-transfer-e-w , #teacss-layer .ui-icon-transfer-e-w { background-position: -96px -80px; }
+.teacss-ui .ui-icon-transferthick-e-w , #teacss-layer .ui-icon-transferthick-e-w , #teacss-layer .ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.teacss-ui .ui-icon-folder-collapsed , #teacss-layer .ui-icon-folder-collapsed , #teacss-layer .ui-icon-folder-collapsed { background-position: 0 -96px; }
+.teacss-ui .ui-icon-folder-open , #teacss-layer .ui-icon-folder-open , #teacss-layer .ui-icon-folder-open { background-position: -16px -96px; }
+.teacss-ui .ui-icon-document , #teacss-layer .ui-icon-document , #teacss-layer .ui-icon-document { background-position: -32px -96px; }
+.teacss-ui .ui-icon-document-b , #teacss-layer .ui-icon-document-b , #teacss-layer .ui-icon-document-b { background-position: -48px -96px; }
+.teacss-ui .ui-icon-note , #teacss-layer .ui-icon-note , #teacss-layer .ui-icon-note { background-position: -64px -96px; }
+.teacss-ui .ui-icon-mail-closed , #teacss-layer .ui-icon-mail-closed , #teacss-layer .ui-icon-mail-closed { background-position: -80px -96px; }
+.teacss-ui .ui-icon-mail-open , #teacss-layer .ui-icon-mail-open , #teacss-layer .ui-icon-mail-open { background-position: -96px -96px; }
+.teacss-ui .ui-icon-suitcase , #teacss-layer .ui-icon-suitcase , #teacss-layer .ui-icon-suitcase { background-position: -112px -96px; }
+.teacss-ui .ui-icon-comment , #teacss-layer .ui-icon-comment , #teacss-layer .ui-icon-comment { background-position: -128px -96px; }
+.teacss-ui .ui-icon-person , #teacss-layer .ui-icon-person , #teacss-layer .ui-icon-person { background-position: -144px -96px; }
+.teacss-ui .ui-icon-print , #teacss-layer .ui-icon-print , #teacss-layer .ui-icon-print { background-position: -160px -96px; }
+.teacss-ui .ui-icon-trash , #teacss-layer .ui-icon-trash , #teacss-layer .ui-icon-trash { background-position: -176px -96px; }
+.teacss-ui .ui-icon-locked , #teacss-layer .ui-icon-locked , #teacss-layer .ui-icon-locked { background-position: -192px -96px; }
+.teacss-ui .ui-icon-unlocked , #teacss-layer .ui-icon-unlocked , #teacss-layer .ui-icon-unlocked { background-position: -208px -96px; }
+.teacss-ui .ui-icon-bookmark , #teacss-layer .ui-icon-bookmark , #teacss-layer .ui-icon-bookmark { background-position: -224px -96px; }
+.teacss-ui .ui-icon-tag , #teacss-layer .ui-icon-tag , #teacss-layer .ui-icon-tag { background-position: -240px -96px; }
+.teacss-ui .ui-icon-home , #teacss-layer .ui-icon-home , #teacss-layer .ui-icon-home { background-position: 0 -112px; }
+.teacss-ui .ui-icon-flag , #teacss-layer .ui-icon-flag , #teacss-layer .ui-icon-flag { background-position: -16px -112px; }
+.teacss-ui .ui-icon-calendar , #teacss-layer .ui-icon-calendar , #teacss-layer .ui-icon-calendar { background-position: -32px -112px; }
+.teacss-ui .ui-icon-cart , #teacss-layer .ui-icon-cart , #teacss-layer .ui-icon-cart { background-position: -48px -112px; }
+.teacss-ui .ui-icon-pencil , #teacss-layer .ui-icon-pencil , #teacss-layer .ui-icon-pencil { background-position: -64px -112px; }
+.teacss-ui .ui-icon-clock , #teacss-layer .ui-icon-clock , #teacss-layer .ui-icon-clock { background-position: -80px -112px; }
+.teacss-ui .ui-icon-disk , #teacss-layer .ui-icon-disk , #teacss-layer .ui-icon-disk { background-position: -96px -112px; }
+.teacss-ui .ui-icon-calculator , #teacss-layer .ui-icon-calculator , #teacss-layer .ui-icon-calculator { background-position: -112px -112px; }
+.teacss-ui .ui-icon-zoomin , #teacss-layer .ui-icon-zoomin , #teacss-layer .ui-icon-zoomin { background-position: -128px -112px; }
+.teacss-ui .ui-icon-zoomout , #teacss-layer .ui-icon-zoomout , #teacss-layer .ui-icon-zoomout { background-position: -144px -112px; }
+.teacss-ui .ui-icon-search , #teacss-layer .ui-icon-search , #teacss-layer .ui-icon-search { background-position: -160px -112px; }
+.teacss-ui .ui-icon-wrench , #teacss-layer .ui-icon-wrench , #teacss-layer .ui-icon-wrench { background-position: -176px -112px; }
+.teacss-ui .ui-icon-gear , #teacss-layer .ui-icon-gear , #teacss-layer .ui-icon-gear { background-position: -192px -112px; }
+.teacss-ui .ui-icon-heart , #teacss-layer .ui-icon-heart , #teacss-layer .ui-icon-heart { background-position: -208px -112px; }
+.teacss-ui .ui-icon-star , #teacss-layer .ui-icon-star , #teacss-layer .ui-icon-star { background-position: -224px -112px; }
+.teacss-ui .ui-icon-link , #teacss-layer .ui-icon-link , #teacss-layer .ui-icon-link { background-position: -240px -112px; }
+.teacss-ui .ui-icon-cancel , #teacss-layer .ui-icon-cancel , #teacss-layer .ui-icon-cancel { background-position: 0 -128px; }
+.teacss-ui .ui-icon-plus , #teacss-layer .ui-icon-plus , #teacss-layer .ui-icon-plus { background-position: -16px -128px; }
+.teacss-ui .ui-icon-plusthick , #teacss-layer .ui-icon-plusthick , #teacss-layer .ui-icon-plusthick { background-position: -32px -128px; }
+.teacss-ui .ui-icon-minus , #teacss-layer .ui-icon-minus , #teacss-layer .ui-icon-minus { background-position: -48px -128px; }
+.teacss-ui .ui-icon-minusthick , #teacss-layer .ui-icon-minusthick , #teacss-layer .ui-icon-minusthick { background-position: -64px -128px; }
+.teacss-ui .ui-icon-close , #teacss-layer .ui-icon-close , #teacss-layer .ui-icon-close { background-position: -80px -128px; }
+.teacss-ui .ui-icon-closethick , #teacss-layer .ui-icon-closethick , #teacss-layer .ui-icon-closethick { background-position: -96px -128px; }
+.teacss-ui .ui-icon-key , #teacss-layer .ui-icon-key , #teacss-layer .ui-icon-key { background-position: -112px -128px; }
+.teacss-ui .ui-icon-lightbulb , #teacss-layer .ui-icon-lightbulb , #teacss-layer .ui-icon-lightbulb { background-position: -128px -128px; }
+.teacss-ui .ui-icon-scissors , #teacss-layer .ui-icon-scissors , #teacss-layer .ui-icon-scissors { background-position: -144px -128px; }
+.teacss-ui .ui-icon-clipboard , #teacss-layer .ui-icon-clipboard , #teacss-layer .ui-icon-clipboard { background-position: -160px -128px; }
+.teacss-ui .ui-icon-copy , #teacss-layer .ui-icon-copy , #teacss-layer .ui-icon-copy { background-position: -176px -128px; }
+.teacss-ui .ui-icon-contact , #teacss-layer .ui-icon-contact , #teacss-layer .ui-icon-contact { background-position: -192px -128px; }
+.teacss-ui .ui-icon-image , #teacss-layer .ui-icon-image , #teacss-layer .ui-icon-image { background-position: -208px -128px; }
+.teacss-ui .ui-icon-video , #teacss-layer .ui-icon-video , #teacss-layer .ui-icon-video { background-position: -224px -128px; }
+.teacss-ui .ui-icon-script , #teacss-layer .ui-icon-script , #teacss-layer .ui-icon-script { background-position: -240px -128px; }
+.teacss-ui .ui-icon-alert , #teacss-layer .ui-icon-alert , #teacss-layer .ui-icon-alert { background-position: 0 -144px; }
+.teacss-ui .ui-icon-info , #teacss-layer .ui-icon-info , #teacss-layer .ui-icon-info { background-position: -16px -144px; }
+.teacss-ui .ui-icon-notice , #teacss-layer .ui-icon-notice , #teacss-layer .ui-icon-notice { background-position: -32px -144px; }
+.teacss-ui .ui-icon-help , #teacss-layer .ui-icon-help , #teacss-layer .ui-icon-help { background-position: -48px -144px; }
+.teacss-ui .ui-icon-check , #teacss-layer .ui-icon-check , #teacss-layer .ui-icon-check { background-position: -64px -144px; }
+.teacss-ui .ui-icon-bullet , #teacss-layer .ui-icon-bullet , #teacss-layer .ui-icon-bullet { background-position: -80px -144px; }
+.teacss-ui .ui-icon-radio-off , #teacss-layer .ui-icon-radio-off , #teacss-layer .ui-icon-radio-off { background-position: -96px -144px; }
+.teacss-ui .ui-icon-radio-on , #teacss-layer .ui-icon-radio-on , #teacss-layer .ui-icon-radio-on { background-position: -112px -144px; }
+.teacss-ui .ui-icon-pin-w , #teacss-layer .ui-icon-pin-w , #teacss-layer .ui-icon-pin-w { background-position: -128px -144px; }
+.teacss-ui .ui-icon-pin-s , #teacss-layer .ui-icon-pin-s , #teacss-layer .ui-icon-pin-s { background-position: -144px -144px; }
+.teacss-ui .ui-icon-play , #teacss-layer .ui-icon-play , #teacss-layer .ui-icon-play { background-position: 0 -160px; }
+.teacss-ui .ui-icon-pause , #teacss-layer .ui-icon-pause , #teacss-layer .ui-icon-pause { background-position: -16px -160px; }
+.teacss-ui .ui-icon-seek-next , #teacss-layer .ui-icon-seek-next , #teacss-layer .ui-icon-seek-next { background-position: -32px -160px; }
+.teacss-ui .ui-icon-seek-prev , #teacss-layer .ui-icon-seek-prev , #teacss-layer .ui-icon-seek-prev { background-position: -48px -160px; }
+.teacss-ui .ui-icon-seek-end , #teacss-layer .ui-icon-seek-end , #teacss-layer .ui-icon-seek-end { background-position: -64px -160px; }
+.teacss-ui .ui-icon-seek-start , #teacss-layer .ui-icon-seek-start , #teacss-layer .ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.teacss-ui .ui-icon-seek-first , #teacss-layer .ui-icon-seek-first , #teacss-layer .ui-icon-seek-first { background-position: -80px -160px; }
+.teacss-ui .ui-icon-stop , #teacss-layer .ui-icon-stop , #teacss-layer .ui-icon-stop { background-position: -96px -160px; }
+.teacss-ui .ui-icon-eject , #teacss-layer .ui-icon-eject , #teacss-layer .ui-icon-eject { background-position: -112px -160px; }
+.teacss-ui .ui-icon-volume-off , #teacss-layer .ui-icon-volume-off , #teacss-layer .ui-icon-volume-off { background-position: -128px -160px; }
+.teacss-ui .ui-icon-volume-on , #teacss-layer .ui-icon-volume-on , #teacss-layer .ui-icon-volume-on { background-position: -144px -160px; }
+.teacss-ui .ui-icon-power , #teacss-layer .ui-icon-power , #teacss-layer .ui-icon-power { background-position: 0 -176px; }
+.teacss-ui .ui-icon-signal-diag , #teacss-layer .ui-icon-signal-diag , #teacss-layer .ui-icon-signal-diag { background-position: -16px -176px; }
+.teacss-ui .ui-icon-signal , #teacss-layer .ui-icon-signal , #teacss-layer .ui-icon-signal { background-position: -32px -176px; }
+.teacss-ui .ui-icon-battery-0 , #teacss-layer .ui-icon-battery-0 , #teacss-layer .ui-icon-battery-0 { background-position: -48px -176px; }
+.teacss-ui .ui-icon-battery-1 , #teacss-layer .ui-icon-battery-1 , #teacss-layer .ui-icon-battery-1 { background-position: -64px -176px; }
+.teacss-ui .ui-icon-battery-2 , #teacss-layer .ui-icon-battery-2 , #teacss-layer .ui-icon-battery-2 { background-position: -80px -176px; }
+.teacss-ui .ui-icon-battery-3 , #teacss-layer .ui-icon-battery-3 , #teacss-layer .ui-icon-battery-3 { background-position: -96px -176px; }
+.teacss-ui .ui-icon-circle-plus , #teacss-layer .ui-icon-circle-plus , #teacss-layer .ui-icon-circle-plus { background-position: 0 -192px; }
+.teacss-ui .ui-icon-circle-minus , #teacss-layer .ui-icon-circle-minus , #teacss-layer .ui-icon-circle-minus { background-position: -16px -192px; }
+.teacss-ui .ui-icon-circle-close , #teacss-layer .ui-icon-circle-close , #teacss-layer .ui-icon-circle-close { background-position: -32px -192px; }
+.teacss-ui .ui-icon-circle-triangle-e , #teacss-layer .ui-icon-circle-triangle-e , #teacss-layer .ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.teacss-ui .ui-icon-circle-triangle-s , #teacss-layer .ui-icon-circle-triangle-s , #teacss-layer .ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.teacss-ui .ui-icon-circle-triangle-w , #teacss-layer .ui-icon-circle-triangle-w , #teacss-layer .ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.teacss-ui .ui-icon-circle-triangle-n , #teacss-layer .ui-icon-circle-triangle-n , #teacss-layer .ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.teacss-ui .ui-icon-circle-arrow-e , #teacss-layer .ui-icon-circle-arrow-e , #teacss-layer .ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.teacss-ui .ui-icon-circle-arrow-s , #teacss-layer .ui-icon-circle-arrow-s , #teacss-layer .ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.teacss-ui .ui-icon-circle-arrow-w , #teacss-layer .ui-icon-circle-arrow-w , #teacss-layer .ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.teacss-ui .ui-icon-circle-arrow-n , #teacss-layer .ui-icon-circle-arrow-n , #teacss-layer .ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.teacss-ui .ui-icon-circle-zoomin , #teacss-layer .ui-icon-circle-zoomin , #teacss-layer .ui-icon-circle-zoomin { background-position: -176px -192px; }
+.teacss-ui .ui-icon-circle-zoomout , #teacss-layer .ui-icon-circle-zoomout , #teacss-layer .ui-icon-circle-zoomout { background-position: -192px -192px; }
+.teacss-ui .ui-icon-circle-check , #teacss-layer .ui-icon-circle-check , #teacss-layer .ui-icon-circle-check { background-position: -208px -192px; }
+.teacss-ui .ui-icon-circlesmall-plus , #teacss-layer .ui-icon-circlesmall-plus , #teacss-layer .ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.teacss-ui .ui-icon-circlesmall-minus , #teacss-layer .ui-icon-circlesmall-minus , #teacss-layer .ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.teacss-ui .ui-icon-circlesmall-close , #teacss-layer .ui-icon-circlesmall-close , #teacss-layer .ui-icon-circlesmall-close { background-position: -32px -208px; }
+.teacss-ui .ui-icon-squaresmall-plus , #teacss-layer .ui-icon-squaresmall-plus , #teacss-layer .ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.teacss-ui .ui-icon-squaresmall-minus , #teacss-layer .ui-icon-squaresmall-minus , #teacss-layer .ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.teacss-ui .ui-icon-squaresmall-close , #teacss-layer .ui-icon-squaresmall-close , #teacss-layer .ui-icon-squaresmall-close { background-position: -80px -208px; }
+.teacss-ui .ui-icon-grip-dotted-vertical , #teacss-layer .ui-icon-grip-dotted-vertical , #teacss-layer .ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.teacss-ui .ui-icon-grip-dotted-horizontal , #teacss-layer .ui-icon-grip-dotted-horizontal , #teacss-layer .ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.teacss-ui .ui-icon-grip-solid-vertical , #teacss-layer .ui-icon-grip-solid-vertical , #teacss-layer .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.teacss-ui .ui-icon-grip-solid-horizontal , #teacss-layer .ui-icon-grip-solid-horizontal , #teacss-layer .ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.teacss-ui .ui-icon-gripsmall-diagonal-se , #teacss-layer .ui-icon-gripsmall-diagonal-se , #teacss-layer .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.teacss-ui .ui-icon-grip-diagonal-se , #teacss-layer .ui-icon-grip-diagonal-se , #teacss-layer .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.teacss-ui .ui-corner-all, #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-top, #teacss-layer .ui-corner-top, .teacss-ui .ui-corner-left, #teacss-layer .ui-corner-left, .teacss-ui .ui-corner-tl , #teacss-layer .ui-corner-tl , #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-top, #teacss-layer .ui-corner-top, .teacss-ui .ui-corner-left, #teacss-layer .ui-corner-left, .teacss-ui .ui-corner-tl , #teacss-layer .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+.teacss-ui .ui-corner-all, #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-top, #teacss-layer .ui-corner-top, .teacss-ui .ui-corner-right, #teacss-layer .ui-corner-right, .teacss-ui .ui-corner-tr , #teacss-layer .ui-corner-tr , #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-top, #teacss-layer .ui-corner-top, .teacss-ui .ui-corner-right, #teacss-layer .ui-corner-right, .teacss-ui .ui-corner-tr , #teacss-layer .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.teacss-ui .ui-corner-all, #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-bottom, #teacss-layer .ui-corner-bottom, .teacss-ui .ui-corner-left, #teacss-layer .ui-corner-left, .teacss-ui .ui-corner-bl , #teacss-layer .ui-corner-bl , #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-bottom, #teacss-layer .ui-corner-bottom, .teacss-ui .ui-corner-left, #teacss-layer .ui-corner-left, .teacss-ui .ui-corner-bl , #teacss-layer .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.teacss-ui .ui-corner-all, #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-bottom, #teacss-layer .ui-corner-bottom, .teacss-ui .ui-corner-right, #teacss-layer .ui-corner-right, .teacss-ui .ui-corner-br , #teacss-layer .ui-corner-br , #teacss-layer .ui-corner-all, .teacss-ui .ui-corner-bottom, #teacss-layer .ui-corner-bottom, .teacss-ui .ui-corner-right, #teacss-layer .ui-corner-right, .teacss-ui .ui-corner-br , #teacss-layer .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+/* Overlays */
+.teacss-ui .ui-widget-overlay , #teacss-layer .ui-widget-overlay , #teacss-layer .ui-widget-overlay { background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
+.teacss-ui .ui-widget-shadow , #teacss-layer .ui-widget-shadow , #teacss-layer .ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }/*
+ * jQuery UI Resizable 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Resizable#theming
+ */
+.teacss-ui .ui-resizable , #teacss-layer .ui-resizable , #teacss-layer .ui-resizable { position: relative;}
+.teacss-ui .ui-resizable-handle , #teacss-layer .ui-resizable-handle , #teacss-layer .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; }
+.teacss-ui .ui-resizable-disabled .ui-resizable-handle, #teacss-layer .ui-resizable-disabled .ui-resizable-handle, .teacss-ui .ui-resizable-autohide .ui-resizable-handle , #teacss-layer .ui-resizable-autohide .ui-resizable-handle , #teacss-layer .ui-resizable-disabled .ui-resizable-handle, .teacss-ui .ui-resizable-autohide .ui-resizable-handle , #teacss-layer .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.teacss-ui .ui-resizable-n , #teacss-layer .ui-resizable-n , #teacss-layer .ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.teacss-ui .ui-resizable-s , #teacss-layer .ui-resizable-s , #teacss-layer .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.teacss-ui .ui-resizable-e , #teacss-layer .ui-resizable-e , #teacss-layer .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.teacss-ui .ui-resizable-w , #teacss-layer .ui-resizable-w , #teacss-layer .ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.teacss-ui .ui-resizable-se , #teacss-layer .ui-resizable-se , #teacss-layer .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.teacss-ui .ui-resizable-sw , #teacss-layer .ui-resizable-sw , #teacss-layer .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.teacss-ui .ui-resizable-nw , #teacss-layer .ui-resizable-nw , #teacss-layer .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.teacss-ui .ui-resizable-ne , #teacss-layer .ui-resizable-ne , #teacss-layer .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}/*
+ * jQuery UI Selectable 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Selectable#theming
+ */
+.teacss-ui .ui-selectable-helper , #teacss-layer .ui-selectable-helper , #teacss-layer .ui-selectable-helper { position: absolute; z-index: 100; border:1px dotted black; }
+/*
+ * jQuery UI Accordion 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.teacss-ui .ui-accordion , #teacss-layer .ui-accordion , #teacss-layer .ui-accordion { width: 100%; }
+.teacss-ui .ui-accordion .ui-accordion-header , #teacss-layer .ui-accordion .ui-accordion-header , #teacss-layer .ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; }
+.teacss-ui .ui-accordion .ui-accordion-li-fix , #teacss-layer .ui-accordion .ui-accordion-li-fix , #teacss-layer .ui-accordion .ui-accordion-li-fix { display: inline; }
+.teacss-ui .ui-accordion .ui-accordion-header-active , #teacss-layer .ui-accordion .ui-accordion-header-active , #teacss-layer .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.teacss-ui .ui-accordion .ui-accordion-header a , #teacss-layer .ui-accordion .ui-accordion-header a , #teacss-layer .ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
+.teacss-ui .ui-accordion-icons .ui-accordion-header a , #teacss-layer .ui-accordion-icons .ui-accordion-header a , #teacss-layer .ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
+.teacss-ui .ui-accordion .ui-accordion-header .ui-icon , #teacss-layer .ui-accordion .ui-accordion-header .ui-icon , #teacss-layer .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.teacss-ui .ui-accordion .ui-accordion-content , #teacss-layer .ui-accordion .ui-accordion-content , #teacss-layer .ui-accordion .ui-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.teacss-ui .ui-accordion .ui-accordion-content-active , #teacss-layer .ui-accordion .ui-accordion-content-active , #teacss-layer .ui-accordion .ui-accordion-content-active { display: block; }
+/*
+ * jQuery UI Autocomplete 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.teacss-ui .ui-autocomplete , #teacss-layer .ui-autocomplete , #teacss-layer .ui-autocomplete { position: absolute; cursor: default; }	
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu 1.8.16
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.teacss-ui .ui-menu , #teacss-layer .ui-menu , #teacss-layer .ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+}
+.teacss-ui .ui-menu .ui-menu , #teacss-layer .ui-menu .ui-menu , #teacss-layer .ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.teacss-ui .ui-menu .ui-menu-item , #teacss-layer .ui-menu .ui-menu-item , #teacss-layer .ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.teacss-ui .ui-menu .ui-menu-item a , #teacss-layer .ui-menu .ui-menu-item a , #teacss-layer .ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.teacss-ui .ui-menu .ui-menu-item a.ui-state-hover, #teacss-layer .ui-menu .ui-menu-item a.ui-state-hover,
+.teacss-ui .ui-menu .ui-menu-item a.ui-state-active , #teacss-layer .ui-menu .ui-menu-item a.ui-state-active , #teacss-layer .ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+/*
+ * jQuery UI Button 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Button#theming
+ */
+.teacss-ui .ui-button , #teacss-layer .ui-button , #teacss-layer .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+.teacss-ui .ui-button-icon-only , #teacss-layer .ui-button-icon-only , #teacss-layer .ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
+button.ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
+.teacss-ui .ui-button-icons-only , #teacss-layer .ui-button-icons-only , #teacss-layer .ui-button-icons-only { width: 3.4em; } 
+button.ui-button-icons-only { width: 3.7em; } 
+
+/*button text element */
+.teacss-ui .ui-button .ui-button-text , #teacss-layer .ui-button .ui-button-text , #teacss-layer .ui-button .ui-button-text { display: block; line-height: 1.4;  }
+.teacss-ui .ui-button-text-only .ui-button-text , #teacss-layer .ui-button-text-only .ui-button-text , #teacss-layer .ui-button-text-only .ui-button-text { padding: .4em 1em; }
+.teacss-ui .ui-button-icon-only .ui-button-text, #teacss-layer .ui-button-icon-only .ui-button-text, .teacss-ui .ui-button-icons-only .ui-button-text , #teacss-layer .ui-button-icons-only .ui-button-text , #teacss-layer .ui-button-icon-only .ui-button-text, .teacss-ui .ui-button-icons-only .ui-button-text , #teacss-layer .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
+.teacss-ui .ui-button-text-icon-primary .ui-button-text, #teacss-layer .ui-button-text-icon-primary .ui-button-text, .teacss-ui .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icon-primary .ui-button-text, .teacss-ui .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; }
+.teacss-ui .ui-button-text-icon-secondary .ui-button-text, #teacss-layer .ui-button-text-icon-secondary .ui-button-text, .teacss-ui .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icon-secondary .ui-button-text, .teacss-ui .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text { padding: .4em 2.1em .4em 1em; }
+.teacss-ui .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text , #teacss-layer .ui-button-text-icons .ui-button-text { padding-left: 2.1em; padding-right: 2.1em; }
+/* no icon support for input elements, provide padding by default */
+input.ui-button { padding: .4em 1em; }
+
+/*button icon element(s) */
+.teacss-ui .ui-button-icon-only .ui-icon, #teacss-layer .ui-button-icon-only .ui-icon, .teacss-ui .ui-button-text-icon-primary .ui-icon, #teacss-layer .ui-button-text-icon-primary .ui-icon, .teacss-ui .ui-button-text-icon-secondary .ui-icon, #teacss-layer .ui-button-text-icon-secondary .ui-icon, .teacss-ui .ui-button-text-icons .ui-icon, #teacss-layer .ui-button-text-icons .ui-icon, .teacss-ui .ui-button-icons-only .ui-icon , #teacss-layer .ui-button-icons-only .ui-icon , #teacss-layer .ui-button-icon-only .ui-icon, .teacss-ui .ui-button-text-icon-primary .ui-icon, #teacss-layer .ui-button-text-icon-primary .ui-icon, .teacss-ui .ui-button-text-icon-secondary .ui-icon, #teacss-layer .ui-button-text-icon-secondary .ui-icon, .teacss-ui .ui-button-text-icons .ui-icon, #teacss-layer .ui-button-text-icons .ui-icon, .teacss-ui .ui-button-icons-only .ui-icon , #teacss-layer .ui-button-icons-only .ui-icon { position: absolute; top: 50%; margin-top: -8px; }
+.teacss-ui .ui-button-icon-only .ui-icon , #teacss-layer .ui-button-icon-only .ui-icon , #teacss-layer .ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
+.teacss-ui .ui-button-text-icon-primary .ui-button-icon-primary, #teacss-layer .ui-button-text-icon-primary .ui-button-icon-primary, .teacss-ui .ui-button-text-icons .ui-button-icon-primary, #teacss-layer .ui-button-text-icons .ui-button-icon-primary, .teacss-ui .ui-button-icons-only .ui-button-icon-primary , #teacss-layer .ui-button-icons-only .ui-button-icon-primary , #teacss-layer .ui-button-text-icon-primary .ui-button-icon-primary, .teacss-ui .ui-button-text-icons .ui-button-icon-primary, #teacss-layer .ui-button-text-icons .ui-button-icon-primary, .teacss-ui .ui-button-icons-only .ui-button-icon-primary , #teacss-layer .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
+.teacss-ui .ui-button-text-icon-secondary .ui-button-icon-secondary, #teacss-layer .ui-button-text-icon-secondary .ui-button-icon-secondary, .teacss-ui .ui-button-text-icons .ui-button-icon-secondary, #teacss-layer .ui-button-text-icons .ui-button-icon-secondary, .teacss-ui .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-text-icon-secondary .ui-button-icon-secondary, .teacss-ui .ui-button-text-icons .ui-button-icon-secondary, #teacss-layer .ui-button-text-icons .ui-button-icon-secondary, .teacss-ui .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+.teacss-ui .ui-button-text-icons .ui-button-icon-secondary, #teacss-layer .ui-button-text-icons .ui-button-icon-secondary, .teacss-ui .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-text-icons .ui-button-icon-secondary, .teacss-ui .ui-button-icons-only .ui-button-icon-secondary , #teacss-layer .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+
+/*button sets*/
+.teacss-ui .ui-buttonset , #teacss-layer .ui-buttonset , #teacss-layer .ui-buttonset { margin-right: 7px; }
+.teacss-ui .ui-buttonset .ui-button , #teacss-layer .ui-buttonset .ui-button , #teacss-layer .ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
+
+/* workarounds */
+button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra padding in Firefox */
+/*
+ * jQuery UI Dialog 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog#theming
+ */
+.teacss-ui .ui-dialog , #teacss-layer .ui-dialog , #teacss-layer .ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
+.teacss-ui .ui-dialog .ui-dialog-titlebar , #teacss-layer .ui-dialog .ui-dialog-titlebar , #teacss-layer .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
+.teacss-ui .ui-dialog .ui-dialog-title , #teacss-layer .ui-dialog .ui-dialog-title , #teacss-layer .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
+.teacss-ui .ui-dialog .ui-dialog-titlebar-close , #teacss-layer .ui-dialog .ui-dialog-titlebar-close , #teacss-layer .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.teacss-ui .ui-dialog .ui-dialog-titlebar-close span , #teacss-layer .ui-dialog .ui-dialog-titlebar-close span , #teacss-layer .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+.teacss-ui .ui-dialog .ui-dialog-titlebar-close:hover, #teacss-layer .ui-dialog .ui-dialog-titlebar-close:hover, .teacss-ui .ui-dialog .ui-dialog-titlebar-close:focus , #teacss-layer .ui-dialog .ui-dialog-titlebar-close:focus , #teacss-layer .ui-dialog .ui-dialog-titlebar-close:hover, .teacss-ui .ui-dialog .ui-dialog-titlebar-close:focus , #teacss-layer .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.teacss-ui .ui-dialog .ui-dialog-content , #teacss-layer .ui-dialog .ui-dialog-content , #teacss-layer .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.teacss-ui .ui-dialog .ui-dialog-buttonpane , #teacss-layer .ui-dialog .ui-dialog-buttonpane , #teacss-layer .ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.teacss-ui .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset , #teacss-layer .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset , #teacss-layer .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+.teacss-ui .ui-dialog .ui-dialog-buttonpane button , #teacss-layer .ui-dialog .ui-dialog-buttonpane button , #teacss-layer .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
+.teacss-ui .ui-dialog .ui-resizable-se , #teacss-layer .ui-dialog .ui-resizable-se , #teacss-layer .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.teacss-ui .ui-draggable .ui-dialog-titlebar , #teacss-layer .ui-draggable .ui-dialog-titlebar , #teacss-layer .ui-draggable .ui-dialog-titlebar { cursor: move; }
+/*
+ * jQuery UI Slider 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Slider#theming
+ */
+.teacss-ui .ui-slider , #teacss-layer .ui-slider , #teacss-layer .ui-slider { position: relative; text-align: left; }
+.teacss-ui .ui-slider .ui-slider-handle , #teacss-layer .ui-slider .ui-slider-handle , #teacss-layer .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.teacss-ui .ui-slider .ui-slider-range , #teacss-layer .ui-slider .ui-slider-range , #teacss-layer .ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.teacss-ui .ui-slider-horizontal , #teacss-layer .ui-slider-horizontal , #teacss-layer .ui-slider-horizontal { height: .8em; }
+.teacss-ui .ui-slider-horizontal .ui-slider-handle , #teacss-layer .ui-slider-horizontal .ui-slider-handle , #teacss-layer .ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.teacss-ui .ui-slider-horizontal .ui-slider-range , #teacss-layer .ui-slider-horizontal .ui-slider-range , #teacss-layer .ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.teacss-ui .ui-slider-horizontal .ui-slider-range-min , #teacss-layer .ui-slider-horizontal .ui-slider-range-min , #teacss-layer .ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.teacss-ui .ui-slider-horizontal .ui-slider-range-max , #teacss-layer .ui-slider-horizontal .ui-slider-range-max , #teacss-layer .ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.teacss-ui .ui-slider-vertical , #teacss-layer .ui-slider-vertical , #teacss-layer .ui-slider-vertical { width: .8em; height: 100px; }
+.teacss-ui .ui-slider-vertical .ui-slider-handle , #teacss-layer .ui-slider-vertical .ui-slider-handle , #teacss-layer .ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.teacss-ui .ui-slider-vertical .ui-slider-range , #teacss-layer .ui-slider-vertical .ui-slider-range , #teacss-layer .ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.teacss-ui .ui-slider-vertical .ui-slider-range-min , #teacss-layer .ui-slider-vertical .ui-slider-range-min , #teacss-layer .ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.teacss-ui .ui-slider-vertical .ui-slider-range-max , #teacss-layer .ui-slider-vertical .ui-slider-range-max , #teacss-layer .ui-slider-vertical .ui-slider-range-max { top: 0; }/*
+ * jQuery UI Tabs 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+.teacss-ui .ui-tabs , #teacss-layer .ui-tabs , #teacss-layer .ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.teacss-ui .ui-tabs .ui-tabs-nav , #teacss-layer .ui-tabs .ui-tabs-nav , #teacss-layer .ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
+.teacss-ui .ui-tabs .ui-tabs-nav li , #teacss-layer .ui-tabs .ui-tabs-nav li , #teacss-layer .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
+.teacss-ui .ui-tabs .ui-tabs-nav li a , #teacss-layer .ui-tabs .ui-tabs-nav li a , #teacss-layer .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
+.teacss-ui .ui-tabs .ui-tabs-nav li.ui-tabs-selected , #teacss-layer .ui-tabs .ui-tabs-nav li.ui-tabs-selected , #teacss-layer .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+.teacss-ui .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, #teacss-layer .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .teacss-ui .ui-tabs .ui-tabs-nav li.ui-state-disabled a, #teacss-layer .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .teacss-ui .ui-tabs .ui-tabs-nav li.ui-state-processing a , #teacss-layer .ui-tabs .ui-tabs-nav li.ui-state-processing a , #teacss-layer .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .teacss-ui .ui-tabs .ui-tabs-nav li.ui-state-disabled a, #teacss-layer .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .teacss-ui .ui-tabs .ui-tabs-nav li.ui-state-processing a , #teacss-layer .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.teacss-ui .ui-tabs .ui-tabs-nav li a, #teacss-layer .ui-tabs .ui-tabs-nav li a, .teacss-ui .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a , #teacss-layer .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a , #teacss-layer .ui-tabs .ui-tabs-nav li a, .teacss-ui .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a , #teacss-layer .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.teacss-ui .ui-tabs .ui-tabs-panel , #teacss-layer .ui-tabs .ui-tabs-panel , #teacss-layer .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+.teacss-ui .ui-tabs .ui-tabs-hide , #teacss-layer .ui-tabs .ui-tabs-hide , #teacss-layer .ui-tabs .ui-tabs-hide { display: none !important; }
+/*
+ * jQuery UI Datepicker 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+.teacss-ui .ui-datepicker , #teacss-layer .ui-datepicker , #teacss-layer .ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+.teacss-ui .ui-datepicker .ui-datepicker-header , #teacss-layer .ui-datepicker .ui-datepicker-header , #teacss-layer .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.teacss-ui .ui-datepicker .ui-datepicker-prev, #teacss-layer .ui-datepicker .ui-datepicker-prev, .teacss-ui .ui-datepicker .ui-datepicker-next , #teacss-layer .ui-datepicker .ui-datepicker-next , #teacss-layer .ui-datepicker .ui-datepicker-prev, .teacss-ui .ui-datepicker .ui-datepicker-next , #teacss-layer .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.teacss-ui .ui-datepicker .ui-datepicker-prev-hover, #teacss-layer .ui-datepicker .ui-datepicker-prev-hover, .teacss-ui .ui-datepicker .ui-datepicker-next-hover , #teacss-layer .ui-datepicker .ui-datepicker-next-hover , #teacss-layer .ui-datepicker .ui-datepicker-prev-hover, .teacss-ui .ui-datepicker .ui-datepicker-next-hover , #teacss-layer .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.teacss-ui .ui-datepicker .ui-datepicker-prev , #teacss-layer .ui-datepicker .ui-datepicker-prev , #teacss-layer .ui-datepicker .ui-datepicker-prev { left:2px; }
+.teacss-ui .ui-datepicker .ui-datepicker-next , #teacss-layer .ui-datepicker .ui-datepicker-next , #teacss-layer .ui-datepicker .ui-datepicker-next { right:2px; }
+.teacss-ui .ui-datepicker .ui-datepicker-prev-hover , #teacss-layer .ui-datepicker .ui-datepicker-prev-hover , #teacss-layer .ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.teacss-ui .ui-datepicker .ui-datepicker-next-hover , #teacss-layer .ui-datepicker .ui-datepicker-next-hover , #teacss-layer .ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.teacss-ui .ui-datepicker .ui-datepicker-prev span, #teacss-layer .ui-datepicker .ui-datepicker-prev span, .teacss-ui .ui-datepicker .ui-datepicker-next span , #teacss-layer .ui-datepicker .ui-datepicker-next span , #teacss-layer .ui-datepicker .ui-datepicker-prev span, .teacss-ui .ui-datepicker .ui-datepicker-next span , #teacss-layer .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.teacss-ui .ui-datepicker .ui-datepicker-title , #teacss-layer .ui-datepicker .ui-datepicker-title , #teacss-layer .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.teacss-ui .ui-datepicker .ui-datepicker-title select , #teacss-layer .ui-datepicker .ui-datepicker-title select , #teacss-layer .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.teacss-ui .ui-datepicker select.ui-datepicker-month-year , #teacss-layer .ui-datepicker select.ui-datepicker-month-year , #teacss-layer .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.teacss-ui .ui-datepicker select.ui-datepicker-month, #teacss-layer .ui-datepicker select.ui-datepicker-month, 
+.teacss-ui .ui-datepicker select.ui-datepicker-year , #teacss-layer .ui-datepicker select.ui-datepicker-year , #teacss-layer .ui-datepicker select.ui-datepicker-year { width: 49%;}
+.teacss-ui .ui-datepicker table , #teacss-layer .ui-datepicker table , #teacss-layer .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.teacss-ui .ui-datepicker th , #teacss-layer .ui-datepicker th , #teacss-layer .ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
+.teacss-ui .ui-datepicker td , #teacss-layer .ui-datepicker td , #teacss-layer .ui-datepicker td { border: 0; padding: 1px; }
+.teacss-ui .ui-datepicker td span, #teacss-layer .ui-datepicker td span, .teacss-ui .ui-datepicker td a , #teacss-layer .ui-datepicker td a , #teacss-layer .ui-datepicker td span, .teacss-ui .ui-datepicker td a , #teacss-layer .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.teacss-ui .ui-datepicker .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.teacss-ui .ui-datepicker .ui-datepicker-buttonpane button , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane button , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.teacss-ui .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current , #teacss-layer .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+/* with multiple calendars */
+.teacss-ui .ui-datepicker.ui-datepicker-multi , #teacss-layer .ui-datepicker.ui-datepicker-multi , #teacss-layer .ui-datepicker.ui-datepicker-multi { width:auto; }
+.teacss-ui .ui-datepicker-multi .ui-datepicker-group , #teacss-layer .ui-datepicker-multi .ui-datepicker-group , #teacss-layer .ui-datepicker-multi .ui-datepicker-group { float:left; }
+.teacss-ui .ui-datepicker-multi .ui-datepicker-group table , #teacss-layer .ui-datepicker-multi .ui-datepicker-group table , #teacss-layer .ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.teacss-ui .ui-datepicker-multi-2 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-2 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.teacss-ui .ui-datepicker-multi-3 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-3 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.teacss-ui .ui-datepicker-multi-4 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-4 .ui-datepicker-group , #teacss-layer .ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.teacss-ui .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header , #teacss-layer .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header , #teacss-layer .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.teacss-ui .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header , #teacss-layer .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header , #teacss-layer .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.teacss-ui .ui-datepicker-multi .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker-multi .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.teacss-ui .ui-datepicker-row-break , #teacss-layer .ui-datepicker-row-break , #teacss-layer .ui-datepicker-row-break { clear:both; width:100%; font-size:0em; }
+
+/* RTL support */
+.teacss-ui .ui-datepicker-rtl , #teacss-layer .ui-datepicker-rtl , #teacss-layer .ui-datepicker-rtl { direction: rtl; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-prev , #teacss-layer .ui-datepicker-rtl .ui-datepicker-prev , #teacss-layer .ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-next , #teacss-layer .ui-datepicker-rtl .ui-datepicker-next , #teacss-layer .ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-prev:hover , #teacss-layer .ui-datepicker-rtl .ui-datepicker-prev:hover , #teacss-layer .ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-next:hover , #teacss-layer .ui-datepicker-rtl .ui-datepicker-next:hover , #teacss-layer .ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-buttonpane button , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane button , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current , #teacss-layer .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-group , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.teacss-ui .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header , #teacss-layer .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.teacss-ui .ui-datepicker-cover , #teacss-layer .ui-datepicker-cover , #teacss-layer .ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}/*
+ * jQuery UI Progressbar 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Progressbar#theming
+ */
+.teacss-ui .ui-progressbar , #teacss-layer .ui-progressbar , #teacss-layer .ui-progressbar { height:2em; text-align: left; }
+.teacss-ui .ui-progressbar .ui-progressbar-value , #teacss-layer .ui-progressbar .ui-progressbar-value , #teacss-layer .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
