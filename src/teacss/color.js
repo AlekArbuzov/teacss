@@ -4,8 +4,10 @@ teacss.Color = function() {
         this.alpha = a != null ? a : 1;
     };
 
-    function clamp(val) {
-        return Math.min(1, Math.max(0, val));
+    function clamp(val,min,max) {
+        min = min==undefined ? 0 : min;
+        max = max==undefined ? 1 : max;
+        return Math.min(max, Math.max(min, val));
     }
     var lookupColors = {
         aqua:[0,255,255],
@@ -148,15 +150,57 @@ teacss.Color = function() {
             sat = Math.floor(((val-x)/val)*100);
             val = Math.floor(val*100);
             return({h:hue, s:sat, v:val});
+        },
+        toARGB: function () {
+            var argb = [Math.round(this.alpha * 255)].concat(this.rgb);
+            return '#' + argb.map(function (i) {
+                i = Math.round(i);
+                i = (i > 255 ? 255 : (i < 0 ? 0 : i)).toString(16);
+                return i.length === 1 ? '0' + i : i;
+            }).join('');
+        },
+        add : function () {
+            return new teacss.Color(
+                clamp(c1.rgb[0]+c2.rgb[0],0,255),
+                clamp(c1.rgb[1]+c2.rgb[1],0,255),
+                clamp(c1.rgb[2]+c2.rgb[2],0,255),
+                clamp(c1.alpha+c2.alpha,0,1)
+            );
+        },
+        sub : function () {
+            return new teacss.Color(
+                clamp(c1.rgb[0]-c2.rgb[0],0,255),
+                clamp(c1.rgb[1]-c2.rgb[1],0,255),
+                clamp(c1.rgb[2]-c2.rgb[2],0,255),
+                clamp(c1.alpha-c2.alpha,0,1)
+            );
         }
     }
 
     Color.functions = {
+        color_add: function (c1,c2) {
+            if (!(c1 instanceof teacss.Color)) c1 = teacss.Color.parse(c1);
+            if (!(c2 instanceof teacss.Color)) c2 = teacss.Color.parse(c2);
+            return c1.add(c2);
+        },
+        color_sub : function () {
+            if (!(c1 instanceof teacss.Color)) c1 = teacss.Color.parse(c1);
+            if (!(c2 instanceof teacss.Color)) c2 = teacss.Color.parse(c2);
+            return c1.sub(c2);
+        },
+        color: function(color) {
+            if (color instanceof teacss.Color) return color;
+            return teacss.Color.parse(color);
+        },
         rgb: function (r, g, b) {
             return this.rgba(r, g, b, 1.0);
         },
         rgba: function (r, g, b, a) {
             return new teacss.Color(r,g,b,a);
+        },
+        argb: function (color) {
+            if (typeof(color)=='string') color = teacss.Color.parse(color);
+            return color.toARGB();
         },
         hsl: function (h, s, l) {
             return this.hsla({h:h, s:s, l:l, a:1.0});

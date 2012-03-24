@@ -597,9 +597,10 @@ teacss = (function () {
         scriptNode.type = 'text/javascript';
         if (href) {
             var src = href;
-            var js = teacss.getFile(src);
-            //scriptNode.src = src;
-            scriptNode.text = js || "";
+            //var js = teacss.getFile(src);
+            //scriptNode.text = js || "";
+            scriptNode.src = src;
+            scriptNode.async = false;
         } else {
             scriptNode.text = js || "";
         }

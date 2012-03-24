@@ -18,7 +18,7 @@
  */
 
 ////////////////
-@teavar: "content";
+@ var teavar = "content";
 ////////////////
 
 /* Colors
@@ -56,6 +56,8 @@
 */
 
 .selector /* .with */, .lots, /* of */ .comments {
+  tea.print("color: grey, /* blue */ orange");
+  tea.print("color: grey, "+/* blue */" orange");
   color: grey, /* blue */ orange;
   -webkit-border-radius: 2px /* webkit only */;
   -moz-border-radius: 2px * 4 /* moz only with operation */;

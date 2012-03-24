@@ -10,8 +10,13 @@ tea.f("#yellow", function(){
     tea.print("color: rgba(255, 238, 170, 0.1)");
   });
   tea.f("#argb", function(){
-    tea.print("color: argb(rgba(255, 238, 170, 0.1))");
+    tea.print("color: "+(argb(rgba(255, 238, 170, 0.1)))+"");
   });
+});
+
+tea.f("body", function(){
+    boo = rgba(255,255,255,0.5);
+    tea.print("color: "+(darken(boo,50))+"");
 });
 
 tea.f("#blue", function(){

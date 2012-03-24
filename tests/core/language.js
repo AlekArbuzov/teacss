@@ -1,5 +1,5 @@
-test ('Language', function () {
-    for (test in samples){
+test('Language', function () {
+    for (var test in samples){
         var output = teacss.parseSheetFile("assets/tea/" + samples[test] + ".tea");
         var sample = teacss.getFile("assets/samples/" + samples[test] + ".js");
 
