@@ -1,29 +1,30 @@
-@x: blue;
-@z: transparent;
-@mix: none;
+@ var x = "blue";
+@ var z = "transparent";
+@ var mix = "none";
 
-.mixin {
-  @mix: #989;
+.mixin() {
+  @ mix = "#989";
 }
 
 .tiny-scope {
-  color: @mix; // #989
-  .mixin;
+  color: @mix; // none
+  .mixin();
+  color: @mix; //#989
 }
 
 .scope1 {
-  @y: orange;
-  @z: black;
+  @ var y = "orange";
+  @ z = "black";
   color: @x; // blue
   border-color: @z; // black
-  .hidden {
-    @x: #131313;
+  .hidden() {
+    @ x = "#131313";
   }
   .scope2 {
-    @y: red;
+    @ y = "red";
     color: @x; // blue
     .scope3 {
-      @local: white;
+      @ var local = "white";
       color: @y; // red
       border-color: @z; // black
       background-color: @local; // white

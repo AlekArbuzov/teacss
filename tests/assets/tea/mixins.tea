@@ -1,67 +1,16 @@
-.mixin { border: 1px solid black; }
-.mixout { border-color: orange; }
-.borders { border-style: dashed; }
-
-#namespace {
-  .borders {
-    border-style: dotted;
-  }
-  .biohazard {
-    content: "death";
-    .man {
-      color: transparent;
+.mixin(border) { border: @{border}px solid black; }
+.mixout() { border-color: orange; }
+.borders() {
+    .inner_color(col){
+        color: @col;
     }
-  }
+    border-style: dashed;
 }
-#theme {
-  > .mixin {
-    background-color: grey;
-  }
-}
+
 #container {
-  color: black;
-  .mixin;
-  .mixout;
-  #theme > .mixin;
+  .mixin(1);
+  .mixout();
+  .borders();
+  .inner_color('red');
 }
 
-#header {
-  .milk {
-    color: white;
-    .mixin;
-    #theme > .mixin;
-  }
-  #cookie {
-    .chips {
-      #namespace .borders;
-      .calories {
-        #container;
-      }
-    }
-    .borders;
-  }
-}
-.secure-zone { #namespace .biohazard .man; }
-.direct {
-  #namespace > .borders;
-}
-
-.bo, .bar {
-    width: 100%;
-}
-.bo {
-    border: 1px;
-}
-.ar.bo.ca {
-    color: black;
-}
-.jo.ki {
-    background: none;
-}
-.extended {
-    .bo;
-    .jo.ki;
-}
-.foo .bar {
-  .bar;
-}

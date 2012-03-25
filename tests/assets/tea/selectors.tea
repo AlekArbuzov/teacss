@@ -1,6 +1,6 @@
 h1, h2, h3 {
   a, p {
-    &:hover {
+    hover {
       color: red;
     }
   }
@@ -26,22 +26,22 @@ td, input {
 a {
   color: red;
 
-  &:hover { color: blue; }
+  :hover { color: blue; }
 
-  div & { color: green; }
+  div { color: green; }
 
-  p & span { color: yellow; }
+  p span { color: yellow; }
 }
 
 .foo {
   .bar, .baz {
-    & .qux {
+    .qux {
       display: block;
     }
-    .qux & {
+    .qux {
       display: inline;
     }
-    .qux & .biz {
+    .qux .biz {
       display: none;
     }
   }

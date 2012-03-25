@@ -1,4 +1,4 @@
-#yellow {
+#yelow {
   #short {
     color: #fea;
   }
@@ -8,12 +8,8 @@
   #rgba {
     color: rgba(255, 238, 170, 0.1);
   }
-@{
-    col = new teacss.Color(255, 238, 170, 1);
-    val = col.toHSL();
-}
   #argb {
-    color: @val;
+    color: @{argb(0.1, 255, 238, 170)} ;
   }
 }
 
@@ -28,7 +24,7 @@
     color: rgba(0, 0, 255, 0.1);
   }
   #argb {
-    color: argb(rgba(0, 0, 255, 0.1));
+    color: @{argb(0.1, 0, 0, 255)};
   }
 }
 
@@ -36,21 +32,10 @@
     color: hsla(11, 20%, 20%, 0.6);
 }
 
-@ v1 = 0xdddddd;
-@ v2 = 0x111111;
-
-@{
-    a = v2 - v1;
-    if (a < 0) { a = "#000000"; }
-    b = "#" + (v1 + v2).toString(16);
-    c = v1 * v2;
-    if (c > 0xffffff) {c = "#ffffff"; }
-}
-
 #overflow {
-  .a { color: @a } // #000000
-  .b { color: @b } // #eeeeee
-  .c { color: @c } // #ffffff
+  .a { color: @{sub_colors(color('#111111'), color('#444444'))}; } // #000000
+  .b { color: @{add_colors(color('#eee'), color('#fff'))}; } // #ffffff
+  .d { color: @{add_colors(color('#00ee00'), color('#009900'))}; } // #00ff00
 }
 
 #grey {
@@ -66,14 +51,9 @@
 }
 
 .lightenblue {
-    color: lighten(blue, 10%);
+    color: @{lighten('blue', 10)};
 }
 
 .darkenblue {
-    color: darken(blue, 10%);
-}
-
-.unknowncolors {
-    color: blue2;
-    border: 2px solid superred;
+    color: @{darken('blue', 10)};
 }

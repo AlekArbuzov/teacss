@@ -4,8 +4,11 @@ teacss.Color = function() {
         this.alpha = a != null ? a : 1;
     };
 
-    function clamp(val) {
-        return Math.min(1, Math.max(0, val));
+    function clamp(val, minValue, maxValue) {
+        minValue = minValue != undefined ? minValue : 0;
+        maxValue = maxValue != undefined ? maxValue : 1;
+
+        return Math.min(maxValue, Math.max(minValue, val));
     }
     var lookupColors = {
         aqua:[0,255,255],
@@ -148,15 +151,30 @@ teacss.Color = function() {
             sat = Math.floor(((val-x)/val)*100);
             val = Math.floor(val*100);
             return({h:hue, s:sat, v:val});
+        },
+        toARGB: function () {
+            var argb = [Math.round(this.alpha * 255)].concat(this.rgb);
+            return '#' + argb.map(function (i) {
+                i = Math.round(i);
+                i = (i > 255 ? 255 : (i < 0 ? 0 : i)).toString(16);
+                return i.length === 1 ? '0' + i : i;
+            }).join('');
         }
     }
 
     Color.functions = {
+        color: function (col) {
+            col = (col == undefined || col instanceof teacss.Color) ? col : teacss.Color.parse(col);
+            return col;
+        },
         rgb: function (r, g, b) {
             return this.rgba(r, g, b, 1.0);
         },
         rgba: function (r, g, b, a) {
             return new teacss.Color(r,g,b,a);
+        },
+        argb: function (a, r, g, b) {
+            return new teacss.Color(r, g, b, a).toARGB();
         },
         hsl: function (h, s, l) {
             return this.hsla({h:h, s:s, l:l, a:1.0});
@@ -266,6 +284,28 @@ teacss.Color = function() {
         },
         greyscale: function (color) {
             return this.desaturate(color, 100);
+        },
+        add_colors: function (color1, color2) {
+            color1 = (color1 instanceof teacss.Color) ? color1 : teacss.Color.parse(color1);
+            color2 = (color2 instanceof teacss.Color) ? color2 : teacss.Color.parse(color2);
+
+            var r = clamp(color1.rgb[0] + color2.rgb[0], 0, 255),
+                g = clamp(color1.rgb[1] + color2.rgb[1], 0, 255),
+                b = clamp(color1.rgb[2] + color2.rgb[2], 0, 255),
+                a = clamp(color1.alpha + color2.alpha, 0, 1);
+
+            return new teacss.Color(r,g,b,a);
+        },
+        sub_colors: function (color1, color2) {
+            color1 = (color1 instanceof teacss.Color) ? color1 : teacss.Color.parse(color1);
+            color2 = (color2 instanceof teacss.Color) ? color2 : teacss.Color.parse(color2);
+
+            var r = clamp(color1.rgb[0] - color2.rgb[0], 0, 255),
+                g = clamp(color1.rgb[1] - color2.rgb[1], 0, 255),
+                b = clamp(color1.rgb[2] - color2.rgb[2], 0, 255),
+                a = clamp(color1.alpha - color2.alpha, 0, 1);
+
+            return new teacss.Color(r,g,b,a);
         }
     }
     String.prototype.toHSL = function () { return Color.parse(this).toHSL(); }

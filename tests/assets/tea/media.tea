@@ -1,31 +1,17 @@
+@ teavar = 42;
 
-// For now, variables can't be declared inside @media blocks.
+@ var _media = "media";
 
-@teavar: 42;
-
-@media print {
+@@{"media"} print {
     .class {
         color: blue;
         .sub {
             width: @teavar;
         }
     }
-    .top, header > h1 {
-        color: #222 * 2;
-    }
 }
 
-@media screen {
-    @base: 8;
-    body { max-width: @base * 60; }
-}
-
-@media all and (orientation:portrait) {
-    aside { float: none; }
-}
-
-@media handheld and (min-width: @teavar), screen and (min-width: 20em) {
-    body {
-        max-width: 480px;
-    }
+@@{_media} screen {
+    @ base = 8;
+    body { max-width: @{base * 60}; }
 }
