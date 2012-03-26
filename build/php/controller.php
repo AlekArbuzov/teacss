@@ -6,6 +6,10 @@ class TeacssFileController {
         $this->path = $path;
     }
 
+    function index() {
+        echo "TODO: Write usage";
+    }
+
     function files() {
         $sub = @$_REQUEST['path'];
         $text = @$_REQUEST['text'];
@@ -48,7 +52,7 @@ class TeacssFileController {
                 $iterator = new \DirectoryIterator($path);
                 foreach ($iterator as $sub) {
                     $name = $sub->__toString();
-                    $file = str_replace($base,"",str_replace("\\","/",realpath($sub->getPathname())));
+                    $file = str_replace($base,"",str_replace("\\","/",$sub->getPathname()));
                     if ($sub->isDir()) {
                         if (!$sub->isDot())
                             $res[] = array('name'=>$name,'folder'=>true,'path'=>$file);
@@ -56,7 +60,7 @@ class TeacssFileController {
                 }
                 foreach ($iterator as $sub) {
                     $name = $sub->__toString();
-                    $file = str_replace($base,"",str_replace("\\","/",realpath($sub->getPathname())));
+                    $file = str_replace($base,"",str_replace("\\","/",$sub->getPathname()));
                     if (!$sub->isDir()) {
                         $res[] = array('name'=>$name,'folder'=>false,'path'=>$file);
                     }

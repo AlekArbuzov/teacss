@@ -1,4 +1,4 @@
-if (teacss.ui) teacss.ui.buildButton = function (options) {
+teacss.buildButton = function (options) {
     return teacss.ui.button($.extend({label:'Export',click:function(){
         var dst = this.options.dst;
         var src = this.options.src;

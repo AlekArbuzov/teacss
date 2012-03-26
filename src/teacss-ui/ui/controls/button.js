@@ -1,3 +1,4 @@
+(function($){
 teacss.ui.button = teacss.ui.Button = teacss.ui.Control.extend("teacss.ui.Button",{},{
     init : function(options) {
         var me = this;
@@ -16,3 +17,4 @@ teacss.ui.button = teacss.ui.Button = teacss.ui.Control.extend("teacss.ui.Button
         if (options.click) this.element.click($.proxy(options.click,this));
     }
 })
+})(teacss.jQuery);
