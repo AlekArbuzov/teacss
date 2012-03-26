@@ -159,7 +159,8 @@ teacss.Color = function() {
                 return i.length === 1 ? '0' + i : i;
             }).join('');
         },
-        add : function () {
+        add : function (c2) {
+            var c1 = this;
             return new teacss.Color(
                 clamp(c1.rgb[0]+c2.rgb[0],0,255),
                 clamp(c1.rgb[1]+c2.rgb[1],0,255),
@@ -167,7 +168,8 @@ teacss.Color = function() {
                 clamp(c1.alpha+c2.alpha,0,1)
             );
         },
-        sub : function () {
+        sub : function (c2) {
+            var c1 = this;
             return new teacss.Color(
                 clamp(c1.rgb[0]-c2.rgb[0],0,255),
                 clamp(c1.rgb[1]-c2.rgb[1],0,255),
@@ -178,12 +180,12 @@ teacss.Color = function() {
     }
 
     Color.functions = {
-        color_add: function (c1,c2) {
+        add_colors: function (c1,c2) {
             if (!(c1 instanceof teacss.Color)) c1 = teacss.Color.parse(c1);
             if (!(c2 instanceof teacss.Color)) c2 = teacss.Color.parse(c2);
             return c1.add(c2);
         },
-        color_sub : function () {
+        sub_colors : function (c1,c2) {
             if (!(c1 instanceof teacss.Color)) c1 = teacss.Color.parse(c1);
             if (!(c2 instanceof teacss.Color)) c2 = teacss.Color.parse(c2);
             return c1.sub(c2);
@@ -199,7 +201,7 @@ teacss.Color = function() {
             return new teacss.Color(r,g,b,a);
         },
         argb: function (color) {
-            if (typeof(color)=='string') color = teacss.Color.parse(color);
+            if (!(color instanceof teacss.Color)) color = teacss.Color.parse(color);
             return color.toARGB();
         },
         hsl: function (h, s, l) {
