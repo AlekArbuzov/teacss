@@ -18,7 +18,7 @@
  */
 
 ////////////////
-@ var teavar = "content";
+@ teavar = "content";
 ////////////////
 
 /* Colors
@@ -36,8 +36,8 @@
 ------------------- */
 #comments /* boo */ {
   /**/ // An empty comment
-  color: red; /* A C-style comment */
-  background-color: orange; // A little comment
+  color: @{color('red')}; /* A C-style comment */
+  background-color: @{color('orange')}; // A little comment
   font-size: 12px;
 
   /* lost comment */ content: @teavar;
@@ -56,11 +56,9 @@
 */
 
 .selector /* .with */, .lots, /* of */ .comments {
-  tea.print("color: grey, /* blue */ orange");
-  tea.print("color: grey, "+/* blue */" orange");
-  color: grey, /* blue */ orange;
+  color: grey, /* blue */ @{color('orange')};
   -webkit-border-radius: 2px /* webkit only */;
-  -moz-border-radius: 2px * 4 /* moz only with operation */;
+  -moz-border-radius: @{2 * 4}% /* moz only with operation */;
 }
 
 #last { color: blue }
