@@ -1,0 +1,17 @@
+#comments  {
+    color: #ff0000;
+    background-color: #ffa500;
+    font-size: 12px;
+    content: content;
+    border: 1px solid black;
+    padding: 0;
+    margin: 2em;
+}
+.selector, .lots, .comments {
+    color: grey, /* blue */ #ffa500;
+    -webkit-border-radius: 2px /* webkit only */;
+    -moz-border-radius: 8% /* moz only with operation */;
+}
+#last {
+    color: blue;
+}

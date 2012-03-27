@@ -1,0 +1,45 @@
+#yelow #short {
+    color: #fea;
+}
+#yelow #long {
+    color: #ffeeaa;
+}
+#yelow #rgba {
+    color: rgba(255, 238, 170, 0.1);
+}
+#yelow #alpha #hsla {
+    color: hsla(11, 20%, 20%, 0.6);
+}
+#blue #parse {
+    color: #000000;
+}
+#blue #rgb {
+    color: #0000ff;
+}
+#blue #rgba {
+    color: rgba(0, 0, 255, 0.1);
+}
+#blue #argb {
+    color: #1a0000ff;
+}
+#blue #hsl {
+    color: #00ffff;
+}
+#blue #hsla {
+    color: #000000;
+}
+#overflow .a {
+    color: rgba(0, 0, 0, 0);
+}
+#overflow .b {
+    color: #ffffff;
+}
+#overflow .d {
+    color: #00ff00;
+}
+.lightenblue {
+    color: #3333ff;
+}
+.darkenblue {
+    color: #0000cc;
+}

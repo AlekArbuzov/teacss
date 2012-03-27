@@ -1,0 +1,13 @@
+@media print {
+    .class {
+        color: blue;
+    }
+    .class .sub {
+        width: 42;
+    }
+}
+@media screen {
+    body {
+        max-width: 480;
+    }
+}
